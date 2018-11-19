@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  appName: 'CI Achados e Perdidos',
+  version: '1.0',
+  owner: 'Thiago Luiz Nunes',
+  year: '2018',
+  site: 'https://github.com/ThiagoLuizNunes',
+  apiUrl: 'http://localhost:4000/api',
+  oapiUrl: 'http://localhost:4000/oapi',
+  userKey: '_ci-achados-perdidos_'
 };
 
 /*
