@@ -7,5 +7,5 @@ export const environment = {
   site: 'https://github.com/ThiagoLuizNunes',
   apiUrl: '',
   oapiUrl: '',
-  userKey: '_ci-achados-perdidos_'
+  ci_userKey: '_ci-achados-perdidos_'
 };
