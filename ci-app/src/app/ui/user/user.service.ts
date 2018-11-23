@@ -1,7 +1,16 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { environment } from '../../../environments/environment';
+
 import UserClass from './userClass';
+import ICallback from '../../shared/types/icallback.types';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    'Authorization': ''
+  })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -9,15 +18,14 @@ import UserClass from './userClass';
 
 export class UserService {
   user: UserClass;
-  api: string = environment.apiUrl;
   oapi: string = environment.oapiUrl;
 
   constructor(private http: HttpClient) { }
 
   getUser(): void {
     if (!this.user) {
-      this.user = new UserClass('asd', 'asd', 'asd');
-      // user = new User(JSON.parse(localStorage.getItem(environment.ci_userKey));
+      const [name, email, token] = JSON.parse(localStorage.getItem(environment.ci_userKey));
+      this.user = new UserClass(name, email, token);
     }
   }
 
@@ -33,9 +41,9 @@ export class UserService {
       );
   }
 
-  submit(url: string, user: UserClass, callback: () => void): void {
+  submit(url: string, user: UserClass, callback: ICallback): void {
 
-    this.http.post<UserClass>(url, JSON.stringify(user))
+    this.http.post<UserClass>(`${this.oapi}/${url}`, JSON.stringify(user))
       .subscribe(
         response => {
           console.log('POST REQUEST is successful', response);
@@ -44,5 +52,23 @@ export class UserService {
           console.log('ERROR', error);
         }
       );
+  }
+
+  login(user: UserClass, callback: ICallback): void {
+    this.submit('login', user, callback);
+  }
+
+  signup(user: UserClass, callback: ICallback): void {
+    this.submit('signup', user, callback);
+  }
+
+  logout(callback: ICallback): void {
+    this.user = null;
+    localStorage.removeItem(environment.ci_userKey);
+    httpOptions.headers = httpOptions.headers.set('Authorization', '');
+
+    if (callback) {
+      callback(null);
+    }
   }
 }
