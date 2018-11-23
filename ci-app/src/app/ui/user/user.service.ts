@@ -9,7 +9,6 @@ import UserClass from './userClass';
 
 export class UserService {
   user: UserClass;
-  api: string = environment.apiUrl;
   oapi: string = environment.oapiUrl;
 
   constructor(private http: HttpClient) { }
@@ -35,7 +34,7 @@ export class UserService {
 
   submit(url: string, user: UserClass, callback: () => void): void {
 
-    this.http.post<UserClass>(url, JSON.stringify(user))
+    this.http.post<UserClass>(`${this.oapi}/${url}`, JSON.stringify(user))
       .subscribe(
         response => {
           console.log('POST REQUEST is successful', response);
@@ -44,5 +43,20 @@ export class UserService {
           console.log('ERROR', error);
         }
       );
+  }
+
+  login(user: UserClass, callback: () => void): void {
+    this.submit('login', user, callback);
+  }
+
+  signup(user: UserClass, callback: () => void): void {
+    this.submit('signup', user, callback);
+  }
+
+  logout(callback: () => void): void {
+    this.user = null;
+    localStorage.removeItem(environment.ci_userKey);
+
+    // if (callback) callback(null);
   }
 }
