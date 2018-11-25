@@ -9,5 +9,6 @@ export class AuthService {
 
   public isAuthenticated(): boolean {
     // TODO: User authentication and validateToken
+    return true;
   }
 }
