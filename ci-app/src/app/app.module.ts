@@ -13,7 +13,7 @@ import { UiModule } from './ui/ui.module';
   imports: [
     BrowserModule,
     HttpClientModule,
-    NgbModule.forRoot(),
+    NgbModule,
     UiModule
   ],
   providers: [],
