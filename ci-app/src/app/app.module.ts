@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UiModule } from './ui/ui.module';
 
 @NgModule({
@@ -13,7 +12,6 @@ import { UiModule } from './ui/ui.module';
   imports: [
     BrowserModule,
     HttpClientModule,
-    NgbModule,
     UiModule
   ],
   providers: [],
