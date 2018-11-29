@@ -1,9 +1,15 @@
-<a class="nav-item nav-link" (click)="open(content)">
+<a class="nav-item nav-link" (click)="openModal('ciLoginModal')">
   Login
 </a>
-<a class="nav-item nav-link" (click)="open(content)">
+<a class="nav-item nav-link" (click)="openModal('ciLoginModal')">
   Sign Up
 </a>
+
+<ci-modal id="ciLoginModal">
+  <h1>A Custom Modal!</h1>
+    <p>Home page text:</p>
+  <button (click)="closeModal();">Close</button>
+</ci-modal>
 
 <!-- <ng-template #content let-modal>
   <div class="modal-header">
