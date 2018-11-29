@@ -1,11 +1,17 @@
-<a class="nav-item nav-link" (click)="open(content)">
+<a class="nav-item nav-link" (click)="openModal('ciLoginModal')">
   Login
 </a>
-<a class="nav-item nav-link" (click)="open(content)">
+<a class="nav-item nav-link" (click)="openModal('ciLoginModal')">
   Sign Up
 </a>
 
-<ng-template #content let-modal>
+<ci-modal id="ciLoginModal">
+  <h1>A Custom Modal!</h1>
+    <p>Home page text:</p>
+  <button (click)="closeModal();">Close</button>
+</ci-modal>
+
+<!-- <ng-template #content let-modal>
   <div class="modal-header">
     <h4 class="modal-title">Login</h4>
     <h4 class="modal-title">SignUp</h4>
@@ -54,7 +60,7 @@
     Are you already registered? Login here!</a>
     <a href="#" (click)="showLogin()" [hidden]="!forgotMode">Back to login</a>
   </div>
-</ng-template>
+</ng-template> -->
 
 <!-- <div class="modal-footer">
   <button type="button" class="btn btn-outline-dark" (click)="modal.close()">Save</button>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { ModalService } from '../modal/modal.service';
 
 @Component({
   selector: 'ci-login',
@@ -8,19 +8,17 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private modalService: NgbModal) { }
+  constructor(private modalService: ModalService) { }
 
   ngOnInit() {
   }
 
-  open(content) {
-    this.modalService.open(content).result.then((result) => {
-
-    }, (reason) => {
-
-    });
+  openModal(id: string) {
+    this.modalService.open(id);
   }
-  login() {}
-  signup() {}
-  forgot() {}
+
+  closeModal(id: string) {
+    this.modalService.close(id);
+  }
+
 }
