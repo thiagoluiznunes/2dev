@@ -16,8 +16,9 @@ export class ModalComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     const modal = this;
-    this.element.style.display = 'none';
-
+    // this.element.style.display = 'block';
+    // this.element.style.opacity = '0';
+    // this.element.style.trasition  = 'opacity ease .4s';
     // ensure id attribute exists
     if (!this.id) {
       console.error('modal must have an id');
@@ -30,7 +31,7 @@ export class ModalComponent implements OnInit, OnDestroy {
     // close modal on background click
     this.element.addEventListener('click', function (e: any) {
       if (e.target.className === 'ci-modal') {
-          modal.close();
+        modal.close();
       }
     });
 
@@ -40,19 +41,24 @@ export class ModalComponent implements OnInit, OnDestroy {
 
   // remove self from modal service when directive is destroyed
   ngOnDestroy(): void {
+    console.log('Destroyed');
     this.modalService.remove(this.id);
     this.element.remove();
   }
 
   // open modal
   open(): void {
+    this.element.style.opacity = '1';
     this.element.style.display = 'block';
+    console.log('Open', this.element);
     document.body.classList.add('ci-modal-open');
   }
 
   // close modal
   close(): void {
+    this.element.style.opacity = '0';
     this.element.style.display = 'none';
+    console.log('Closed', this.element);
     document.body.classList.remove('ci-modal-open');
   }
 }
