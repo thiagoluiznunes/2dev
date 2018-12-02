@@ -16,7 +16,7 @@ export class ModalComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     const modal = this;
-    this.element.style.display = 'none';
+    this.initCss();
 
     // ensure id attribute exists
     if (!this.id) {
@@ -30,7 +30,7 @@ export class ModalComponent implements OnInit, OnDestroy {
     // close modal on background click
     this.element.addEventListener('click', function (e: any) {
       if (e.target.className === 'ci-modal') {
-          modal.close();
+        modal.close();
       }
     });
 
@@ -47,12 +47,29 @@ export class ModalComponent implements OnInit, OnDestroy {
   // open modal
   open(): void {
     this.element.style.display = 'block';
-    document.body.classList.add('ci-modal-open');
+    setTimeout(() => {
+      this.element.style.opacity = '1';
+    }, 200);
+    // document.body.classList.add('ci-modal-open');
   }
 
   // close modal
   close(): void {
+    this.element.style.opacity = '0';
+    setTimeout(() => {
+      this.element.style.display = 'none';
+    }, 200);
+
+    console.log('Closed', this.element);
+    // document.body.classList.remove('ci-modal-open');
+  }
+
+  initCss(): void {
+    this.element.style.opacity = '0';
     this.element.style.display = 'none';
-    document.body.classList.remove('ci-modal-open');
+    this.element.style.MozTransition = 'opacity .4s ease';
+    this.element.style.OTransition = 'opacity .4s ease';
+    this.element.style.WebkitTransition = 'opacity .4s ease';
+    this.element.style.transition = 'opacity .4s ease';
   }
 }
