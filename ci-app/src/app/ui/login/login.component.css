@@ -5,64 +5,65 @@
 .nav {
   font-family: VarelaRound-Regular;
 }
-#loginModal .modal-login {
+#ciLoginModal .modal-login {
   color: #636363;
-  width: 350px;
+  width: 200px;
+  height: 600px;
 }
-#loginModal .modal-login .modal-content {
+#ciLoginModal .modal-login .modal-content {
   padding: 20px;
   border-radius: 5px;
   border: none;
 }
-#loginModal .modal-login .modal-header {
+#ciLoginModal .modal-login .modal-header {
   border-bottom: none;
   position: relative;
   justify-content: center;
 }
-#loginModal .modal-login h4 {
+#ciLoginModal .modal-login h4 {
   text-align: center;
   font-size: 26px;
 }
-#loginModal .input-group {
+#ciLoginModal .input-group {
   margin-bottom: 10%;
 }
-#loginModal .input-group-addon {
+#ciLoginModal .input-group-addon {
   background-color: #F5F5F5;
 }
-#loginModal .modal-login  .form-group {
+#ciLoginModal .modal-login  .form-group {
   position: relative;
 }
-#loginModal .modal-login i {
+#ciLoginModal .modal-login i {
   font-size: 18px;
 }
-#loginModal .modal-login .form-control {
+#ciLoginModal .modal-login .form-control {
   padding-left: 10px;
 }
-#loginModal .modal-login .form-control:focus {
+#ciLoginModal .modal-login .form-control:focus {
   border-color: #00ce81;
 }
-#loginModal .modal-login .form-control, .modal-login .btn {
+#ciLoginModal .modal-login .form-control, .modal-login .btn {
   min-height: 40px;
   border-radius: 3px;
 }
-#loginModal .modal-login .hint-text {
+#ciLoginModal .modal-login .hint-text {
   text-align: center;
   padding-top: 10px;
 }
-#loginModal .modal-login .close {
+#ciLoginModal .modal-login .close {
   position: absolute;
   top: -5px;
   right: -5px;
 }
-#loginModal .modal-login .btn-login {
+#ciLoginModal .modal-login .btn-login {
   background: #2196F3;
   border: none;
   line-height: normal;
 }
-#loginModal .modal-login .btn-login:hover, .modal-login .btn-login:focus {
+#ciLoginModal .modal-login .btn-login:hover, .modal-login .btn-login:focus {
   background: #1E88E5;
 }
-#loginModal .modal-login .modal-footer {
+#ciLoginModal .modal-login .modal-footer {
   background: #ecf0f1;
   border-color: #dee4e7;
   text-align: center;
@@ -71,27 +72,27 @@
   font-size: 13px;
   justify-content: center;
 }
-#loginModal .modal-login .modal-footer a {
+#ciLoginModal .modal-login .modal-footer a {
   color: #999;
 }
-#loginModal .trigger-btn {
+#ciLoginModal .trigger-btn {
   display: inline-block;
   margin: 100px auto;
 }
-#loginModal .modal-login .signup-btn {
+#ciLoginModal .modal-login .signup-btn {
   background: #00ce81;
   border: none;
   line-height: normal;
 }
-#loginModal .modal-login .signup-btn:hover, .signup-btn:focus  {
+#ciLoginModal .modal-login .signup-btn:hover, .signup-btn:focus  {
   background: #00bf78;
 }
-#loginModal .modal-login .forgot-btn {
+#ciLoginModal .modal-login .forgot-btn {
   background: #9575CD;
   border: none;
   line-height: normal;
 }
-#loginModal .modal-login .forgot-btn:hover, .forgot-btn:focus  {
+#ciLoginModal .modal-login .forgot-btn:hover, .forgot-btn:focus  {
   background: #7E57C2;
 }
 

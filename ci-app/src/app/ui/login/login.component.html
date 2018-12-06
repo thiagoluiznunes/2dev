@@ -6,6 +6,54 @@
 </a>
 
 <ci-modal id="ciLoginModal">
+  <div class="modal-header">
+    <h4 class="modal-title">Login</h4>
+    <!-- <h4 class="modal-title">SignUp</h4>
+    <h4 class="modal-title">Forgot Password</h4> -->
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fas fa-user"></i></span>
+        <input type="text" class="form-control" placeholder="Name" required="required">
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fas fa-envelope"></i></span>
+        <input type="text" class="form-control" placeholder="Email" required="required">
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fas fa-key"></i></span>
+        <input  type="password" class="form-control" placeholder="Password" required="required">
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fas fa-key"></i></span>
+        <input type="password" class="form-control" placeholder="Confirm Password" required="required">
+      </div>
+      <div id="btn-login" class="form-group">
+        <button type="button" class="btn-login btn-primary btn-block btn-lg" (click)="login()">Login</button>
+      </div>
+      <!-- <div id="btn-signup" class="form-group">
+        <button type="button" class="signup-btn btn-primary btn-block btn-lg" (click)="signup()">SignUp</button>
+      </div>
+      <div id="btn-forgot" class="form-group">
+        <button type="button" class="forgot-btn btn-primary btn-block btn-lg" (click)="forgot()">Forgot Password</button>
+      </div> -->
+    </form>
+  </div>
+  <div class="modal-footer">
+    <div>
+      <a href="#" (click)="showSignUp()" [hidden]="!loginMode">Register here!</a>
+    </div>
+    <!-- <div>
+      <a href="#" (click)="showForgot()" [hidden]="!loginMode">Forgot Password?</a>
+    </div>
+    <a href="#" (click)="showLogin()" [hidden]="!signupMode">
+    Are you already registered? Login here!</a>
+    <a href="#" (click)="showLogin()" [hidden]="!forgotMode">Back to login</a> -->
+  </div>
 </ci-modal>
 
 <!-- <ng-template #content let-modal>
