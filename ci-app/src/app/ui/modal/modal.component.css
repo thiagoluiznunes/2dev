@@ -1,5 +1,6 @@
 .ci-modal {
   /* modal container fixed across whole screen */
+  text-align: center;
   position: fixed;
   top: 0;
   right: 0;
@@ -12,7 +13,8 @@
 }
 .ci-modal .ci-modal-body {
   /*width: 350px;*/
-  text-align: center;
+  margin-top: 2%;
+  display: inline-block;
   width: 25%;
   padding: 20px;
   background: #fff;
