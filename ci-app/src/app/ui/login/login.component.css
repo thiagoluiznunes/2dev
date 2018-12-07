@@ -1,68 +1,70 @@
 @font-face {
   font-family: VarelaRound-Regular;
-  src: url('/fonts/VarelaRound-Regular.ttf')
+  src: url('/assets/fonts/VarelaRound-Regular.ttf')
 }
-.nav {
+#ciLoginModal {
   font-family: VarelaRound-Regular;
-}
-#loginModal .modal-login {
   color: #636363;
-  width: 350px;
+  /*width: 200px;
+  height: 600px;*/
 }
-#loginModal .modal-login .modal-content {
+#ciLoginModal .modal-content {
   padding: 20px;
   border-radius: 5px;
   border: none;
 }
-#loginModal .modal-login .modal-header {
+#ciLoginModal .modal-header {
   border-bottom: none;
   position: relative;
   justify-content: center;
 }
-#loginModal .modal-login h4 {
+#ciLoginModal h4 {
   text-align: center;
   font-size: 26px;
 }
-#loginModal .input-group {
+#ciLoginModal .input-group {
   margin-bottom: 10%;
 }
-#loginModal .input-group-addon {
+#ciLoginModal .input-group-addon {
   background-color: #F5F5F5;
 }
-#loginModal .modal-login  .form-group {
+#ciLoginModal  .form-group {
   position: relative;
 }
-#loginModal .modal-login i {
+#ciLoginModal i {
   font-size: 18px;
 }
-#loginModal .modal-login .form-control {
+#ciLoginModal .form-control {
+  height: auto;
+  outline: none;
+  margin-left: 10px;
   padding-left: 10px;
 }
-#loginModal .modal-login .form-control:focus {
+#ciLoginModal .form-control:focus {
   border-color: #00ce81;
 }
-#loginModal .modal-login .form-control, .modal-login .btn {
+#ciLoginModal .form-control, .btn {
   min-height: 40px;
   border-radius: 3px;
 }
-#loginModal .modal-login .hint-text {
+#ciLoginModal .hint-text {
   text-align: center;
   padding-top: 10px;
 }
-#loginModal .modal-login .close {
+#ciLoginModal .close {
   position: absolute;
   top: -5px;
   right: -5px;
 }
-#loginModal .modal-login .btn-login {
+#ciLoginModal .btn-login {
   background: #2196F3;
   border: none;
   line-height: normal;
 }
-#loginModal .modal-login .btn-login:hover, .modal-login .btn-login:focus {
+#ciLoginModal .btn-login:hover, .btn-login:focus {
   background: #1E88E5;
 }
-#loginModal .modal-login .modal-footer {
+#ciLoginModal .modal-footer {
   background: #ecf0f1;
   border-color: #dee4e7;
   text-align: center;
@@ -71,27 +73,27 @@
   font-size: 13px;
   justify-content: center;
 }
-#loginModal .modal-login .modal-footer a {
+#ciLoginModal .modal-footer a {
   color: #999;
 }
-#loginModal .trigger-btn {
+#ciLoginModal .trigger-btn {
   display: inline-block;
   margin: 100px auto;
 }
-#loginModal .modal-login .signup-btn {
+#ciLoginModal .signup-btn {
   background: #00ce81;
   border: none;
   line-height: normal;
 }
-#loginModal .modal-login .signup-btn:hover, .signup-btn:focus  {
+#ciLoginModal .signup-btn:hover, .signup-btn:focus  {
   background: #00bf78;
 }
-#loginModal .modal-login .forgot-btn {
+#ciLoginModal .forgot-btn {
   background: #9575CD;
   border: none;
   line-height: normal;
 }
-#loginModal .modal-login .forgot-btn:hover, .forgot-btn:focus  {
+#ciLoginModal .forgot-btn:hover, .forgot-btn:focus  {
   background: #7E57C2;
 }
 
