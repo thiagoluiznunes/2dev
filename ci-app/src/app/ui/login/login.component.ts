@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user/user.service';
+import { MsgsService } from '../../shared/services/msgs.service';
 
 import UserClass from '../user/userClass';
 
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   user: UserClass;
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private msgs: MsgsService) {}
 
   ngOnInit() {
   }
@@ -23,7 +24,10 @@ export class LoginComponent implements OnInit {
 
   login(): void {
     this.userService.login(this.user, (err, response) => {
-
+      if (err) {
+        return this.msgs.addError(err.errors);
+      }
+      window.location.reload();
     });
   }
 }
