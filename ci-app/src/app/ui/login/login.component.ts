@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from './login.service';
 import { UserService } from '../user/user.service';
 import { MsgsService } from '../../shared/services/msgs.service';
 
@@ -13,9 +14,17 @@ export class LoginComponent implements OnInit {
 
   user: UserClass;
 
-  constructor(private userService: UserService, private msgs: MsgsService) {}
+  constructor(private userService: UserService, private msgs: MsgsService, private loginService: LoginService) {}
 
   ngOnInit() {
+  }
+
+  openModal(id: string): void {
+    this.loginService.openModal(id);
+  }
+
+  closeModal(id: string): void {
+    this.loginService.closeModal(id);
   }
 
   getUser(): void {
