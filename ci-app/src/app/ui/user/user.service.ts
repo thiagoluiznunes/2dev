@@ -22,11 +22,12 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  getUser(): void {
+  getUser(): UserClass {
     if (!this.user) {
       const [name, email, token] = JSON.parse(localStorage.getItem(environment.ci_userKey));
       this.user = new UserClass(name, email, token);
     }
+    return this.user;
   }
 
   test(): void {
