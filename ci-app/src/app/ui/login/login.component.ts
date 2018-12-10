@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalService } from '../modal/modal.service';
+import { UserService } from '../user/user.service';
+
+import UserClass from '../user/userClass';
 
 @Component({
   selector: 'ci-login',
@@ -8,17 +10,20 @@ import { ModalService } from '../modal/modal.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private modalService: ModalService) { }
+  user: UserClass;
+
+  constructor(private userService: UserService) {}
 
   ngOnInit() {
   }
 
-  openModal(id: string) {
-    this.modalService.open(id);
+  getUser(): void {
+    this.user = this.userService.getUser();
   }
 
-  closeModal(id: string) {
-    this.modalService.close(id);
-  }
+  login(): void {
+    this.userService.login(this.user, (err, response) => {
 
+    });
+  }
 }
