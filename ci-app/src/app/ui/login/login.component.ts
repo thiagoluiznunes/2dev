@@ -3,7 +3,8 @@ import { LoginService } from './login.service';
 import { UserService } from '../user/user.service';
 import { MsgsService } from '../../shared/services/msgs.service';
 
-import UserClass from '../user/userClass';
+import { User } from '../user/user';
+import { UserValidate } from '../user/user-validate';
 
 @Component({
   selector: 'ci-login',
@@ -12,7 +13,7 @@ import UserClass from '../user/userClass';
 })
 export class LoginComponent implements OnInit {
 
-  user: UserClass;
+  user = new User('', '', '', '');
 
   constructor(private userService: UserService, private msgs: MsgsService, private loginService: LoginService) {}
 
@@ -27,16 +28,19 @@ export class LoginComponent implements OnInit {
     this.loginService.closeModal(id);
   }
 
-  getUser(): void {
-    this.user = this.userService.getUser();
+  getUser(): UserValidate {
+    // this.user = this.userService.getUser();
+    return this.userService.getUser();
   }
 
   login(): void {
-    this.userService.login(this.user, (err, response) => {
-      if (err) {
-        return this.msgs.addError(err.errors);
-      }
-      window.location.reload();
-    });
+    console.log('Login function is working');
+    // this.userService.login(this.user, (err, res) => {
+    //   if (err) {
+    //     return this.msgs.addError(err.errors);
+    //   }
+    //   console.log(res);
+    //   window.location.reload();
+    // });
   }
 }

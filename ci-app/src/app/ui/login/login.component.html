@@ -1,3 +1,4 @@
+<!-- !getUser().getIsValid() -->
 <a class="nav-item nav-link" (click)="openModal('ciLoginModal')">
   Login
 </a>
@@ -14,12 +15,15 @@
     </button>
   </div>
   <div class="modal-body">
+    <!-- <form #userForm="ngForm"> -->
     <form>
       <div class="input-group">
         <span style="font-size: 2em; color: #9E9E9E;">
           <i class="fas fa-user"></i>
         </span>
-        <input type="text" class="form-control" placeholder="Name" required="required">
+        <!-- <input type="text" class="form-control" id="name" placeholder="Name"
+               required
+               [(ngModel)]="user.name" name="name"> -->
       </div>
       <div class="input-group">
         <span style="font-size: 2em; color: #9E9E9E;">

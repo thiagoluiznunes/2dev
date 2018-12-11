@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 
-import UserClass from './userClass';
+import { User } from './user';
+import { UserValidate } from './user-validate';
 import ICallback from '../../shared/types/icallback.types';
 
 const httpOptions = {
@@ -17,15 +18,16 @@ const httpOptions = {
 })
 
 export class UserService {
-  user: UserClass;
+  user = new UserValidate('', '', '');
   oapi: string = environment.oapiUrl;
 
   constructor(private http: HttpClient) { }
 
-  getUser(): UserClass {
+  getUser(): UserValidate {
     if (!this.user) {
-      const [name, email, token] = JSON.parse(localStorage.getItem(environment.ci_userKey));
-      this.user = new UserClass(name, email, token);
+      // const [name, email, token] = JSON.parse(localStorage.getItem(environment.ci_userKey));
+      this.user = JSON.parse(localStorage.getItem(environment.ci_userKey));
+      // this.user = new UserValidate(name, email, token);
     }
     return this.user;
   }
@@ -42,24 +44,28 @@ export class UserService {
       );
   }
 
-  submit(url: string, user: UserClass, callback: ICallback): void {
-
-    this.http.post<UserClass>(`${this.oapi}/${url}`, JSON.stringify(user))
+  submit(url: string, user: User, callback: ICallback): void {
+    this.http.post<User>(`${this.oapi}/${url}`, JSON.stringify(user))
       .subscribe(
         response => {
-          console.log('POST REQUEST is successful', response);
+          localStorage.setItem(environment.ci_userKey, JSON.stringify(response));
+          if (callback) {
+            callback(null, response);
+          }
         },
         error => {
-          console.log('ERROR', error);
+          if (callback) {
+            callback(error);
+          }
         }
       );
   }
 
-  login(user: UserClass, callback: ICallback): void {
+  login(user: User, callback: ICallback): void {
     this.submit('login', user, callback);
   }
 
-  signup(user: UserClass, callback: ICallback): void {
+  signup(user: User, callback: ICallback): void {
     this.submit('signup', user, callback);
   }
 
