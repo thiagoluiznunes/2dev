@@ -36,7 +36,9 @@ export class LoginComponent implements OnInit {
 
   login(): void {
     this.userService.login(this.user, (err, res) => {
-      if (err) return this.msgs.addError(err.errors);
+      if (err) {
+        return this.msgs.addError(err.errors);
+      }
       console.log(res);
       window.location.reload();
     });
@@ -44,7 +46,9 @@ export class LoginComponent implements OnInit {
 
   signup() {
     this.userService.signup(this.user, (err, res) => {
-      if (err) return this.msgs.addError(err.errors);
+      if (err) {
+        return this.msgs.addError(err.errors);
+      }
       this.login();
     });
   }

@@ -30,5 +30,5 @@ export class LoginService {
       vm.signupMode = false;
       vm.forgotMode = true;
     }
-  };
+  }
 }
