@@ -1,4 +1,3 @@
-<!-- !getUser().getIsValid() -->
 <a class="nav-item nav-link" (click)="openModal('ciLoginModal', 'login')">
   Login
 </a>
@@ -7,9 +6,9 @@
 </a>
 <ci-modal id="ciLoginModal">
   <div class="modal-header">
-    <h4 class="modal-title">Login</h4>
-    <!-- <h4 class="modal-title">SignUp</h4>
-    <h4 class="modal-title">Forgot Password</h4> -->
+    <h4 [hidden]="!loginMode" class="modal-title">Login</h4>
+    <h4 [hidden]="!signupMode" class="modal-title">SignUp</h4>
+    <h4 [hidden]="!forgotMode"class="modal-title">Forgot Password</h4>
     <button type="button" class="close" aria-label="Close" (click)="closeModal('ciLoginModal')">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -19,7 +18,7 @@
     <!-- {{ user | json }} -->
     <form #form="ngForm" novalidate>
       <div [hidden]="!signupMode" class="input-group">
-        <span style="font-size: 2em; color: #9E9E9E;">
+        <span>
           <i class="fas fa-user"></i>
         </span>
         <input type="text"
@@ -27,7 +26,7 @@
               class="form-control" placeholder="Name" required="required" name="name" [(ngModel)]="user.name">
       </div>
       <div class="input-group">
-        <span style="font-size: 2em; color: #9E9E9E;">
+        <span>
           <i class="fas fa-envelope"></i>
         </span>
         <input type="text"
@@ -35,7 +34,7 @@
               class="form-control" placeholder="Email" required="required" name="name" [(ngModel)]="user.email">
       </div>
       <div [hidden]="forgotMode" class="input-group">
-        <span style="font-size: 2em; color: #9E9E9E;">
+        <span>
           <i class="fas fa-key"></i>
         </span>
         <input type="password"
@@ -43,7 +42,7 @@
               class="form-control" placeholder="Password" required="required" name="name" [(ngModel)]="user.password">
       </div>
       <div [hidden]="!signupMode" class="input-group">
-        <span style="font-size: 2em; color: #9E9E9E;">
+        <span>
           <i class="fas fa-key"></i>
         </span>
         <input type="password"
