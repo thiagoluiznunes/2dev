@@ -7,10 +7,13 @@ import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
 import { ModalComponent } from './modal/modal.component';
 
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [LayoutComponent, HeaderComponent, FooterComponent, LoginComponent, UserComponent, ModalComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   exports: [LayoutComponent]
 })

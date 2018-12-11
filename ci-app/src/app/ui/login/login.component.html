@@ -1,8 +1,8 @@
 <!-- !getUser().getIsValid() -->
-<a class="nav-item nav-link" (click)="openModal('ciLoginModal')">
+<a class="nav-item nav-link" (click)="openModal('ciLoginModal', 'login')">
   Login
 </a>
-<a class="nav-item nav-link" (click)="openModal('ciLoginModal')">
+<a class="nav-item nav-link" (click)="openModal('ciLoginModal', 'signup')">
   Sign Up
 </a>
 <ci-modal id="ciLoginModal">
@@ -15,54 +15,61 @@
     </button>
   </div>
   <div class="modal-body">
-    <!-- <form #userForm="ngForm"> -->
-    <form>
-      <div class="input-group">
+
+    <!-- {{ user | json }} -->
+    <form #form="ngForm" novalidate>
+      <div [hidden]="!signupMode" class="input-group">
         <span style="font-size: 2em; color: #9E9E9E;">
           <i class="fas fa-user"></i>
         </span>
-        <!-- <input type="text" class="form-control" id="name" placeholder="Name"
-               required
-               [(ngModel)]="user.name" name="name"> -->
+        <input type="text"
+              [ngClass]="'form-control-signup'"
+              class="form-control" placeholder="Name" required="required" name="name" [(ngModel)]="user.name">
       </div>
       <div class="input-group">
         <span style="font-size: 2em; color: #9E9E9E;">
           <i class="fas fa-envelope"></i>
         </span>
-        <input type="text" class="form-control" placeholder="Email" required="required">
+        <input type="text"
+              [ngClass]="([loginMode]=='true') ? 'form-control-login': ([signupMode]=='true') ? 'form-control-signup' : 'form-control-forgot'"
+              class="form-control" placeholder="Email" required="required" name="name" [(ngModel)]="user.email">
       </div>
-      <div class="input-group">
+      <div [hidden]="forgotMode" class="input-group">
         <span style="font-size: 2em; color: #9E9E9E;">
           <i class="fas fa-key"></i>
         </span>
-        <input  type="password" class="form-control" placeholder="Password" required="required">
+        <input type="password"
+              [ngClass]="([loginMode]=='true') ? 'form-control-login': 'form-control-signup'"
+              class="form-control" placeholder="Password" required="required" name="name" [(ngModel)]="user.password">
       </div>
-      <div class="input-group">
+      <div [hidden]="!signupMode" class="input-group">
         <span style="font-size: 2em; color: #9E9E9E;">
           <i class="fas fa-key"></i>
         </span>
-        <input type="password" class="form-control" placeholder="Confirm Password" required="required">
+        <input type="password"
+        [ngClass]="'form-control-signup'"
+        class="form-control" placeholder="Confirm Password" required="required" name="name" [(ngModel)]="user.confirm_password">
       </div>
-      <div id="btn-login" class="form-group">
+      <div [hidden]="!loginMode"id="btn-login" class="form-group">
         <button type="button" class="btn-login btn-primary btn-block btn-lg" (click)="login()">Login</button>
       </div>
-      <!-- <div id="btn-signup" class="form-group">
+      <div [hidden]="!signupMode" id="btn-signup" class="form-group">
         <button type="button" class="signup-btn btn-primary btn-block btn-lg" (click)="signup()">SignUp</button>
       </div>
-      <div id="btn-forgot" class="form-group">
+      <div [hidden]="!forgotMode" id="btn-forgot" class="form-group">
         <button type="button" class="forgot-btn btn-primary btn-block btn-lg" (click)="forgot()">Forgot Password</button>
-      </div> -->
+      </div>
     </form>
   </div>
   <div class="modal-footer">
     <div>
-      <a href="#" (click)="showSignUp()" [hidden]="!loginMode">Register here!</a>
+      <a href="#" (click)="openModal('ciLoginModal', 'signup')" [hidden]="!loginMode">Register here!</a>
     </div>
-    <!-- <div>
-      <a href="#" (click)="showForgot()" [hidden]="!loginMode">Forgot Password?</a>
+    <div>
+      <a href="#" (click)="openModal('ciLoginModal', 'forgot')" [hidden]="!loginMode">Forgot Password?</a>
     </div>
-    <a href="#" (click)="showLogin()" [hidden]="!signupMode">
+    <a href="#" (click)="openModal('ciLoginModal', 'login')" [hidden]="!signupMode">
     Are you already registered? Login here!</a>
-    <a href="#" (click)="showLogin()" [hidden]="!forgotMode">Back to login</a> -->
+    <a href="#" (click)="openModal('ciLoginModal', 'login')" [hidden]="!forgotMode">Back to login</a>
   </div>
 </ci-modal>

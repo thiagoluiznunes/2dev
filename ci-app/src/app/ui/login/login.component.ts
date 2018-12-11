@@ -3,9 +3,6 @@ import { LoginService } from './login.service';
 import { UserService } from '../user/user.service';
 import { MsgsService } from '../../shared/services/msgs.service';
 
-import { User } from '../user/user';
-import { UserValidate } from '../user/user-validate';
-
 @Component({
   selector: 'ci-login',
   templateUrl: './login.component.html',
@@ -13,14 +10,18 @@ import { UserValidate } from '../user/user-validate';
 })
 export class LoginComponent implements OnInit {
 
-  user = new User('', '', '', '');
+  user = {};
+  loginMode: boolean;
+  signupMode: boolean;
+  forgotMode: boolean;
 
   constructor(private userService: UserService, private msgs: MsgsService, private loginService: LoginService) {}
 
   ngOnInit() {
   }
 
-  openModal(id: string): void {
+  openModal(id: string, option: string): void {
+    this.loginService.setModalOption(this, option);
     this.loginService.openModal(id);
   }
 
@@ -28,19 +29,28 @@ export class LoginComponent implements OnInit {
     this.loginService.closeModal(id);
   }
 
-  getUser(): UserValidate {
+  getUser(): any {
     // this.user = this.userService.getUser();
-    return this.userService.getUser();
+    this.userService.getUser();
   }
 
   login(): void {
-    console.log('Login function is working');
-    // this.userService.login(this.user, (err, res) => {
-    //   if (err) {
-    //     return this.msgs.addError(err.errors);
-    //   }
-    //   console.log(res);
-    //   window.location.reload();
-    // });
+    this.userService.login(this.user, (err, res) => {
+      if (err) return this.msgs.addError(err.errors);
+      console.log(res);
+      window.location.reload();
+    });
+  }
+
+  signup() {
+    this.userService.signup(this.user, (err, res) => {
+      if (err) return this.msgs.addError(err.errors);
+      this.login();
+    });
+  }
+
+  logout() {
+    this.userService.logout();
+    window.location.reload();
   }
 }
