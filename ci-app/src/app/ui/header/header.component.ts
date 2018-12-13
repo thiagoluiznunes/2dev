@@ -14,13 +14,12 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
-  classToggle():void {
-    const navs = document.querySelectorAll('.Navbar__Items')
-
-    navs.forEach(nav => nav.classList.toggle('Navbar__ToggleShow'));
+  classToggle(): void {
+    // const navs = document.querySelectorAll('.Navbar__Items')
+    // navs.forEach(nav => nav.classList.toggle('Navbar__ToggleShow'));
   }
 
-  onClickToggle():void {
+  onClickToggle(): void {
     this.classToggle();
   }
 }
