@@ -16,32 +16,21 @@
 </nav> -->
 <div class="Navbar">
   <div class="Navbar__Link Navbar__Link-brand">
-    Website title
+    <a class="Navbar_pointer">Inicio</a>
   </div>
   <div (click)="onClickToggle()" class="Navbar__Link Navbar__Link-toggle">
     <i class="fas fa-bars"></i>
   </div>
   <nav class="Navbar__Items">
     <div class="Navbar__Link">
-      Longer Link
+      <a class="Navbar_pointer">Sobre</a>
     </div>
     <div class="Navbar__Link">
-      Longer Link
-    </div>
-    <div class="Navbar__Link">
-      Link
+      <a class="Navbar_pointer">Contato</a>
     </div>
   </nav>
   <nav class="Navbar__Items Navbar__Items--right">
-    <div class="Navbar__Link">
-      <a id="" class="ciLoginLink ciLogin" (click)="openModal('ciLoginModal', 'login')">
-        Login
-      </a>
-    </div>
-    <div class="Navbar__Link">
-      <a id="" class="ciSingUpLink ciLogin" (click)="openModal('ciLoginModal', 'signup')">
-        Sign Up
-      </a>
-    </div>
+    <ci-login id="ciLoginComponent"></ci-login>
+    <!-- <ci-user></ci-user> -->
   </nav>
 </div>

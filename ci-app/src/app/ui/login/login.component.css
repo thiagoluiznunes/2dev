@@ -3,12 +3,15 @@
   src: url('/assets/fonts/VarelaRound-Regular.ttf')
 }
 .ciLogin {
+  display: inline-flex;
   cursor:pointer;
   font-size: 15px;
   font-family: VarelaRound-Regular;
-  color: rgb(115, 143, 147) !important;
 }
-.ciSingUpLink {
+a.ciSingUpLink, a.ciLoginLink {
+  /*color: rgb(100, 100, 100);*/
+}
+a.ciSingUpLink {
   border: 1px solid #ccc;
   border-radius: 3px;
   padding-top: 5px;
@@ -17,23 +20,23 @@
   padding-right: 18px;
   transition: background-color ease-in-out .3s, border-color ease-in-out .3s, color ease-in-out .3s;
 }
-.ciSingUpLink:hover {
-  color: #fff !important;
+a.ciSingUpLink:hover {
+  color: #fff;
   background-color: #00ce81;
   border-color: #00ce81;
 }
-.ciLoginLink {
-  color: rgb(115, 143, 147);
+a.ciLoginLink {
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 18px;
   padding-right: 18px;
   transition: ease-in-out .3s, border-color ease-in-out .3s, color ease-in-out .3s;
 }
-.ciLoginLink:hover {
-  color: #66afe9 !important;
+a.ciLoginLink:hover {
+  color: #66afe9;
   border-color: #66afe9;
 }
+
 #ciLoginModal {
   font-family: VarelaRound-Regular;
   color: #636363;
@@ -81,9 +84,6 @@
 }
 #ciLoginModal .form-group {
   position: relative;
-}
-#ciLoginModal i {
-  /*font-size: 18px;*/
 }
 #ciLoginModal .form-control {
   min-height: 40px;
@@ -174,3 +174,17 @@
   background: #7E57C2;
 }
 
+@media only screen and (max-width: 768px) {
+  .ciLogin {
+    flex-direction: column;
+  }
+  a.ciSingUpLink, a.ciLoginLink {
+    padding-left: 0px;
+    padding-right: 0px;
+    border: none;
+  }
+  a.ciSingUpLink:hover, a.ciLoginLink:hover {
+    background-color: #66afe9;
+    color: #fff;
+  }
+}

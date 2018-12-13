@@ -1,9 +1,12 @@
-<!-- <a id="" class="ciLoginLink ciLogin" (click)="openModal('ciLoginModal', 'login')">
-  Login
-</a>
-<a id="" class="ciSingUpLink ciLogin" (click)="openModal('ciLoginModal', 'signup')">
-  Sign Up
-</a> -->
+<div class="ciLogin">
+  <a id="" class="ciLoginLink" (click)="openModal('ciLoginModal', 'login')">
+    Login
+  </a>
+  <a id="" class="ciSingUpLink" (click)="openModal('ciLoginModal', 'signup')">
+    Sign Up
+  </a>
+</div>
+
 <ci-modal id="ciLoginModal">
   <div class="modal-header">
     <h4 [hidden]="!loginMode" class="modal-title">Login</h4>

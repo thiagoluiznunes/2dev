@@ -9,11 +9,14 @@
 .Navbar {
   background-color: #fff;
   display: flex;
-  padding: 16px;
+  padding: 10px;
+  font-size: 15px;
   font-family: sans-serif;
-  color: rgb(150, 150, 150);
+  color: rgb(100, 100, 100);
 }
 .Navbar__Link {
+  padding-top: 5px;
+  padding-bottom: 5px;
   padding-right: 8px;
 }
 .Navbar__Items {
@@ -25,57 +28,31 @@
 .Navbar__Link-toggle {
   display: none;
 }
+.Navbar_pointer {
+  cursor: pointer;
+}
 @media only screen and (max-width: 768px) {
+  .Navbar {
+    background-color: #66afe9;
+    color: #fff;
+  }
   .Navbar__Items,
   .Navbar {
     flex-direction: column;
   }
-.Navbar__Items {
+  .Navbar__Items {
     display:none;
   }
-.Navbar__Items--right {
+  .Navbar__Items--right {
     margin-left:0;
   }
-.Navbar__ToggleShow {
+  .Navbar__ToggleShow {
     display: flex;
   }
-.Navbar__Link-toggle {
+  .Navbar__Link-toggle {
     align-self: flex-end;
     display: initial;
     position: absolute;
     cursor: pointer;
    }
-}
-
-.ciLogin {
-  cursor:pointer;
-  font-size: 15px;
-  font-family: VarelaRound-Regular;
-  color: rgb(115, 143, 147) !important;
-}
-.ciSingUpLink {
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 18px;
-  padding-right: 18px;
-  transition: background-color ease-in-out .3s, border-color ease-in-out .3s, color ease-in-out .3s;
-}
-.ciSingUpLink:hover {
-  color: #fff !important;
-  background-color: #00ce81;
-  border-color: #00ce81;
-}
-.ciLoginLink {
-  color: rgb(115, 143, 147);
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 18px;
-  padding-right: 18px;
-  transition: ease-in-out .3s, border-color ease-in-out .3s, color ease-in-out .3s;
-}
-.ciLoginLink:hover {
-  color: #66afe9 !important;
-  border-color: #66afe9;
 }
