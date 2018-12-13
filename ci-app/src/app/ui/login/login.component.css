@@ -2,8 +2,37 @@
   font-family: VarelaRound-Regular;
   src: url('/assets/fonts/VarelaRound-Regular.ttf')
 }
-.nav-item {
+.ciLogin {
   cursor:pointer;
+  font-size: 15px;
+  font-family: VarelaRound-Regular;
+  color: rgb(115, 143, 147) !important;
+}
+.ciSingUpLink {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 18px;
+  padding-right: 18px;
+  transition: background-color ease-in-out .3s, border-color ease-in-out .3s, color ease-in-out .3s;
+}
+.ciSingUpLink:hover {
+  color: #fff !important;
+  background-color: #00ce81;
+  border-color: #00ce81;
+}
+.ciLoginLink {
+  color: rgb(115, 143, 147);
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 18px;
+  padding-right: 18px;
+  transition: ease-in-out .3s, border-color ease-in-out .3s, color ease-in-out .3s;
+}
+.ciLoginLink:hover {
+  color: #66afe9 !important;
+  border-color: #66afe9;
 }
 #ciLoginModal {
   font-family: VarelaRound-Regular;
