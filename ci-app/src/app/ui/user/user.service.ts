@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 
-// import { User } from './user';
-// import { UserValidate } from './user-validate';
 import ICallback from '../../shared/types/icallback.types';
 
 const httpOptions = {
@@ -33,20 +31,8 @@ export class UserService {
     return this.user;
   }
 
-  test(): void {
-    this.http.get('https://jsonplaceholder.typicode.com/posts/1')
-      .subscribe(
-        response => {
-          console.log('Response: ', response);
-        },
-        error => {
-          console.log('ERROR ', error);
-        }
-      );
-  }
-
-  submit(url: string, user: any, callback: ICallback): void {
-    this.http.post<any>(`${this.oapi}/${url}`, JSON.stringify(user))
+  submit(url: string, user: any, callback: ICallback): any {
+    this.http.post<any>(`${this.oapi}/${url}`, user)
       .subscribe(
         response => {
           localStorage.setItem(environment.ci_userKey, JSON.stringify(response));
@@ -62,15 +48,15 @@ export class UserService {
       );
   }
 
-  login(user: any, callback: ICallback): void {
+  login(user: any, callback: ICallback): any {
     this.submit('login', user, callback);
   }
 
-  signup(user: any, callback: ICallback): void {
+  signup(user: any, callback: ICallback): any {
     this.submit('signup', user, callback);
   }
 
-  logout(callback?: ICallback): void {
+  logout(callback?: ICallback): any {
     this.user = null;
     localStorage.removeItem(environment.ci_userKey);
     httpOptions.headers = httpOptions.headers.set('Authorization', '');

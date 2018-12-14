@@ -13,7 +13,4 @@ export class UserComponent implements OnInit {
   ngOnInit() {
   }
 
-  test(): void {
-    this.userService.test();
-  }
 }

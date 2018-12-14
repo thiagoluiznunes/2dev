@@ -34,21 +34,21 @@ export class LoginComponent implements OnInit {
     this.userService.getUser();
   }
 
-  login(): void {
+  login(): any {
     this.userService.login(this.user, (err, res) => {
       if (err) {
         return this.msgs.addError(err.errors);
       }
-      console.log(res);
       window.location.reload();
     });
   }
 
-  signup() {
+  signup(): any {
     this.userService.signup(this.user, (err, res) => {
       if (err) {
-        return this.msgs.addError(err.errors);
+        return this.msgs.addError(err.error.erros);
       }
+      this.msgs.addSuccess(res.messages);
       this.login();
     });
   }
