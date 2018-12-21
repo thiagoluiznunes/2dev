@@ -4,19 +4,11 @@ import { environment } from '../../../environments/environment';
 
 import ICallback from '../../shared/types/icallback.types';
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type':  'application/json',
-    'Authorization': ''
-  })
-};
-
 @Injectable({
   providedIn: 'root'
 })
 
 export class UserService {
-  // user = new UserValidate('', '', '');
   user = null;
   oapi = environment.oapiUrl;
 
@@ -24,8 +16,6 @@ export class UserService {
 
   getUser(): any {
     if (!this.user) {
-      // const [name, email, token] = JSON.parse(localStorage.getItem(environment.ci_userKey));
-      // this.user = new UserValidate(name, email, token);
       this.user = JSON.parse(localStorage.getItem(environment.ci_userKey));
     }
     return this.user;
@@ -59,7 +49,7 @@ export class UserService {
   logout(callback?: ICallback): any {
     this.user = null;
     localStorage.removeItem(environment.ci_userKey);
-    httpOptions.headers = httpOptions.headers.set('Authorization', '');
+    // httpOptions.headers = httpOptions.headers.set('Authorization', '');
 
     if (callback) {
       callback(null);

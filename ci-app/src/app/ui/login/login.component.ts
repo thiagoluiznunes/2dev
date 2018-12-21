@@ -31,7 +31,8 @@ export class LoginComponent implements OnInit {
 
   getUser(): any {
     // this.user = this.userService.getUser();
-    this.userService.getUser();
+    console.log('Get User: ', this.userService.getUser());
+    // this.userService.getUser();
   }
 
   login(): any {
