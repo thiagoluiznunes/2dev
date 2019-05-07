@@ -1,6 +1,7 @@
 .navbar-boilerplate {
-  background-image: linear-gradient(to right, #1976d2, #5e9fdf);
+  /* background-image: linear-gradient(to right, #1976d2, #5e9fdf); */
   font-family: VarelaRound-Regular;
+  border-bottom: solid 1px #ccc;
   padding: 0em;
 }
 .navbar-boilerplate .collapse, .navbar-collapse, .navbar-brand {
@@ -14,12 +15,14 @@
   padding-bottom: 5px;
   display: inline-flex;
   cursor:pointer;
-  color: rgb(255, 255, 255);
+  /* color: rgb(255, 255, 255); */
+  color: #616161;
   font-size: 15px;
   transition: color ease-in-out .3s;
 }
 .navbar-boilerplate .nav-link:hover {
-  color: #00E676;
+  /* color: #00E676; */
+  color: #1976d2;
 }
 .navbar-boilerplate .app-singup-link {
   border: 1px solid #ccc;
