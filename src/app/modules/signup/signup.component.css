@@ -25,11 +25,14 @@
 }
 .signup-forms {
   font-family: VarelaRound-Regular;
-  background-image: linear-gradient(to left, #1976d2, #115293);
+  /* background-image: linear-gradient(to left, #1976d2, #115293); */
+  background: #fff;
   padding: .5em;
+  /* height: 100%; */
 }
 .signup-forms .container {
-  width: 460px;
+  /* width: 460px; */
+  width: 500px;
   padding: 25px 75px 25px 75px;
   background-color: #fff;
   border-radius: 8px;
