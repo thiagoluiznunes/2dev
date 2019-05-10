@@ -8,7 +8,8 @@
   padding: 1em;
 }
 .navbar-boilerplate .navbar-brand {
-  color: rgb(255, 255, 255);
+  /* color: rgb(255, 255, 255); */
+  color: #616161;
 }
 .navbar-boilerplate .nav-link {
   padding-top: 5px;
@@ -50,7 +51,8 @@
 }
 .navbar-boilerplate .dropdown-toggle, .navbar-boilerplate .user-name {
   cursor: pointer;
-  color: #fff;
+  /* color: #fff; */
+  color: #616161;
   transition: all ease-in-out .3s;
 }
 .navbar-boilerplate .dropdown-toggle:hover,
@@ -75,6 +77,7 @@
 .dropdown-menu .profile-option:hover {
   background-color: #5e9fdf;
   color: #fff;
+  /* color: #616161; */
 }
 @media only screen and (max-width: 768px) {
   .navbar-boilerplate .app-singup-link,
