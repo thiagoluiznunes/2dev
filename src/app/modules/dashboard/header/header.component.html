@@ -1,8 +1,13 @@
 <div class="skin-blue">
   <header class="main-header">
     <a [routerLink]="['/']" class="logo">
-      <span class="logo-mini"><b>A</b>LT</span>
-      <span class="logo-lg"><b>Angular</b> Boilerplate</span>
+      <span class="logo-mini">CI</span>
+      <span class="logo-lg">
+        <b>Ambiente</b> CI
+      </span>
+      <!-- <span class="logo-lg">
+        <img class="login-nav-logo" src="../../../../assets/imgs/logo.svg" alt="Angular Logo" />
+      </span> -->
     </a>
     <nav class="navbar navbar-static-top" role="navigation">
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
@@ -17,8 +22,8 @@
             </a>
             <ul class="dropdown-menu">
               <li class="user-footer">
-                <a [routerLink]="[ '/dashboard/profile']" class="profile-option">Profile</a>
-                <a (click)="logout()" class="profile-option">Sign out</a>
+                <a [routerLink]="[ '/dashboard/profile']" class="profile-option">Perfil</a>
+                <a (click)="logout()" class="profile-option">Sair</a>
               </li>
             </ul>
           </li>

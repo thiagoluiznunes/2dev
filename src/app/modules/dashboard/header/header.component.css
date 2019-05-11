@@ -1,11 +1,13 @@
 .skin-blue .main-header .navbar {
   font-family: VarelaRound-Regular;
   height: 50px;
-  background-color: #1976d2;
-  background-image: linear-gradient(to right, #1976d2, #5e9fdf);
+  background-color: #1c2d36;
+  /* background-color: #1976d2; */
+  /* background-image: linear-gradient(to right, #1976d2, #5e9fdf); */
 }
 .skin-blue .main-header .logo {
-  background-color: #1976d2;
+  background-color: #1c2d36;
+  /* background-color: #1976d2; */
   color: #fff;
   border-bottom: 0 solid transparent;
 }
