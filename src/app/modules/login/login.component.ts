@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
 
   login(): any {
     if (this.user.email === '' || this.user.password === '') {
-      this.toastr.error(`Complete all fields`);
+      this.toastr.error(`Complete todos os campos`);
       return;
     }
     this.authService.login(this.user, (err, res) => {

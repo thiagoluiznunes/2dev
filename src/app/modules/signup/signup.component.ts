@@ -35,19 +35,19 @@ export class SignupComponent implements OnInit {
       }
     });
     if (empty) {
-      this.toastr.error(`Complete all fields`);
+      this.toastr.error(`Complete todos os campos`);
       return;
     }
     if (!this.user.email.match(emailRegex)) {
-      this.toastr.error(`Invalid email`);
+      this.toastr.error(`Email inválido`);
       return;
     }
     if (this.user.password !== this.user.confirm_password) {
-      this.toastr.error(`Password doesn't mach`);
+      this.toastr.error(`Senhas não conferem`);
       return;
     }
     if (!this.terms_service) {
-      this.toastr.error(`Check Terms of Service`);
+      this.toastr.error(`Aceite os Termos de Serviço`);
       return;
 
     }
