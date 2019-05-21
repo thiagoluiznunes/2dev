@@ -7,6 +7,7 @@ import { HomeRoutingModule } from './home.routing.module';
 import { UserDetailResolver } from 'src/app/core/guards/user.detail.guard';
 import { MainComponent } from './main/main.component';
 import { ContactComponent } from './contact/contact.component';
+import { ArticlesModule } from '../articles/articles.module';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ContactComponent } from './contact/contact.component';
     HttpClientModule,
     HomeRoutingModule,
     UiModule,
+    ArticlesModule
   ],
   providers: [UserDetailResolver]
 })
