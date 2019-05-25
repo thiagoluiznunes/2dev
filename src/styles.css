@@ -16,6 +16,14 @@
   font-family: VarelaRound-Regular;
   src: url('/assets/fonts/VarelaRound-Regular.ttf');
 }
+@font-face {
+  font-family: LucidaGrande;
+  src: url('/assets/fonts/LucidaGrande.ttf');
+}
+@font-face {
+  font-family: LucidaGrandeBold;
+  src: url('/assets/fonts/LucidaGrandeBold.ttf');
+}
 
 html, body {
   height: 100% !important;

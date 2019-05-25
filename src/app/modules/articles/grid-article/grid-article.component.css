@@ -1,0 +1,47 @@
+.gridArticleContainer {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  height: 500px;
+}
+.gridArticleBanner {
+  width: inherit;
+  text-align: center;
+}
+.gridArticleBanner > img {
+  height: 150px;
+}
+.gridArticleTexts {
+  margin-top: .5rem;
+}
+.gridArticleTitle > a > h1 {
+  font-family: LucidaGrandeBold;
+  font-size: 1.4rem;
+}
+.gridArticleDescription {
+  margin-top: 1rem;
+}
+.gridArticleDescription > a > h2 {
+  color: #757575;
+  font-family: LucidaGrande;
+  font-size: .85rem;
+}
+.gridtArticleAuthor {
+  margin-top: 1rem;
+}
+.gridtArticleAuthor > a > h2 {
+  font-family: LucidaGrande;
+  font-size: .85rem;
+}
+.gridArticleStatus > span {
+  color: #757575;
+  font-family: LucidaGrande;
+  font-size: .85rem;
+}
+.gridArticleIcon {
+  vertical-align: middle;
+  margin-left: .5rem;
+}
+.gridArticleIcon > i {
+  padding-bottom: .2rem;
+}
