@@ -1,0 +1,47 @@
+.simpleArticleContainer {
+  display: flex;
+  flex-direction: row;
+  width: 400px;
+  height: 115px;
+  margin-bottom: 1rem;
+  margin-right: 1.2rem;
+}
+.simpleArticleBanner {
+  flex: 1;
+  text-align: center;
+  margin-right: 1.2rem;
+  overflow: hidden;
+}
+.simpleArticleBanner > img {
+  height: 100px;
+}
+.simpleArticleTexts {
+  flex: 2;
+  margin-top: .5rem;
+}
+.simpleArticleTitle > a > h1 {
+  font-family: LucidaGrandeBold;
+  font-size: 1rem;
+}
+.simpleArticleInformation {
+  margin-top: 1.8rem;
+}
+.simpletArticleAuthor {
+  margin-top: 1rem;
+}
+.simpletArticleAuthor > a > h2 {
+  font-family: LucidaGrande;
+  font-size: .85rem;
+}
+.simpleArticleStatus > span {
+  color: #757575;
+  font-family: LucidaGrande;
+  font-size: .85rem;
+}
+.simpleArticleIcon {
+  vertical-align: middle;
+  margin-left: .5rem;
+}
+.simpleArticleIcon > i {
+  padding-bottom: .2rem;
+}

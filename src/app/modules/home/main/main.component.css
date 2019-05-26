@@ -1,0 +1,13 @@
+.mainContainer {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+.mostRatedArticles {
+  display: flex;
+  flex-direction: row;
+}
+.simplesArticles {
+  display: flex;
+  flex-direction: column;
+}
