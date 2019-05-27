@@ -6,8 +6,32 @@
 .mostRatedArticles {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+}
+.mostRatedArticles > app-grid-article {
+  margin-right: 1rem;
 }
 .simplesArticles {
   display: flex;
   flex-direction: column;
+  margin-right: 1rem;
+}
+.simpleArticles .simpleArticle {
+  margin-top: 1.8rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .mainContainer {
+    padding: 0rem;
+  }
+  .mostRatedArticles {
+    flex-direction: column;
+  }
+  .mostRatedArticles > app-grid-article {
+    margin-right: 0rem;
+  }
+  .simplesArticles {
+    margin-top: 1rem;
+    margin-right: 0rem;
+  }
 }

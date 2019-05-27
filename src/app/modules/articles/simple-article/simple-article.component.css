@@ -4,7 +4,7 @@
   width: 400px;
   height: 115px;
   margin-bottom: 1rem;
-  margin-right: 1.2rem;
+  margin: auto;
 }
 .simpleArticleBanner {
   flex: 1;
@@ -24,7 +24,7 @@
   font-size: 1rem;
 }
 .simpleArticleInformation {
-  margin-top: 1.8rem;
+  margin-top: 1.5rem;
 }
 .simpletArticleAuthor {
   margin-top: 1rem;
