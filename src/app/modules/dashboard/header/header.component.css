@@ -17,7 +17,7 @@
   transition: all ease-in-out .3s;
 }
 .skin-blue .main-header .navbar .sidebar-toggle:hover {
-  color: #00E676;
+  color: #1976d2;
 }
 
 
@@ -28,7 +28,7 @@
 }
 .navbar .dropdown-toggle:hover,
 .navbar .dropdown-toggle:hover > span {
-  color: #00E676;
+  color: #1976d2;
   background-color: transparent;
 }
 .skin-blue .main-header .navbar .nav > li > a {
@@ -36,7 +36,7 @@
   background-color: transparent;
 }
 .skin-blue .main-header .navbar .nav > li > a:hover {
-  color: #00E676;
+  color: #1976d2;
 }
 
 
