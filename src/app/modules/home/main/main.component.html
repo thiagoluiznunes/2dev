@@ -1,11 +1,16 @@
 <div class="mainContainer">
-  <section class="mostRatedArticles">
+  <section class="mostRecentArticles">
     <app-grid-article></app-grid-article>
     <div class="simplesArticles">
       <app-simple-article></app-simple-article>
-      <app-simple-article style="margin-top: 1.5rem;"></app-simple-article>
-      <app-simple-article style="margin-top: 1.5rem;"></app-simple-article>
+      <app-simple-article></app-simple-article>
+      <app-simple-article></app-simple-article>
     </div>
-    <app-grid-article style="margin-top: 1rem;"></app-grid-article>
-    </section>
+    <app-grid-article></app-grid-article>
+  </section>
+  <section class="mostRatedArticles">
+    <div *ngFor="let article of mostRatedArticles">
+      <app-row-article></app-row-article>
+    </div>
+  </section>
 </div>
