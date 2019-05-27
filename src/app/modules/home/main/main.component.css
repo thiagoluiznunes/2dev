@@ -17,10 +17,6 @@
   margin-bottom: 1rem;
 }
 
-.simpleArticles .simpleArticle {
-  margin-top: 1.8rem;
-}
-
 .mostRatedArticles {
   display: flex;
   flex-direction: column;
@@ -38,7 +34,9 @@
     margin-right: 0rem;
   }
   .simplesArticles {
-    margin-top: 1rem;
     margin-right: 0rem;
+  }
+  .simplesArticles>app-simple-article {
+    margin-top: 1rem;
   }
 }
