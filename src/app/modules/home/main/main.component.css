@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 90%;
+  margin: auto;
   padding: 2rem;
 }
 
@@ -17,14 +19,28 @@
   margin-bottom: 1rem;
 }
 
+.itemsList {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+}
+
 .mostRatedArticles {
   display: flex;
+  flex: 2;
   flex-direction: column;
   justify-content: center;
 }
 
+.mostRecentFoundPosts {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
 @media only screen and (max-width: 768px) {
   .mainContainer {
+    width: 100%;
     padding: 0rem;
   }
   .mostRecentArticles {

@@ -1,0 +1,72 @@
+.rowArticleContainer {
+  display: flex;
+  flex-direction: row;
+  width: 650px;
+  height: 150px;
+  margin-bottom: 1rem;
+  margin: auto;
+}
+
+.rowArticleBanner {
+  text-align: center;
+  overflow: hidden;
+}
+
+.rowArticleBanner>img {
+  width: 150px;
+  height: 150px;
+}
+
+.rowArticleTexts {
+  width: 500px;
+  margin-top: .5rem;
+}
+
+.rowArticleTitle>a>h1 {
+  font-family: LucidaGrandeBold;
+  font-size: 1rem;
+}
+
+.rowArticleDescription {
+  margin-top: 1rem;
+}
+
+.rowArticleDescription>a>h2 {
+  color: #757575;
+  font-family: LucidaGrande;
+  font-size: .85rem;
+}
+
+.rowArticleInformation {
+  margin-top: 1.5rem;
+}
+
+.rowtArticleAuthor {
+  margin-top: 1rem;
+}
+
+.rowtArticleAuthor>a>h2 {
+  font-family: LucidaGrande;
+  font-size: .85rem;
+}
+
+.rowArticleStatus>span {
+  color: #757575;
+  font-family: LucidaGrande;
+  font-size: .85rem;
+}
+
+.rowArticleIcon {
+  vertical-align: middle;
+  margin-left: .5rem;
+}
+
+.rowArticleIcon>i {
+  padding-bottom: .2rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .rowArticleBanner {
+    margin-right: 0rem;
+  }
+}
