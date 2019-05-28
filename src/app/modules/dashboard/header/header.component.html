@@ -21,8 +21,19 @@
               <span class="user-name">{{ user.name }}</span>
             </a>
             <ul class="dropdown-menu">
-              <li class="user-footer">
-                <a [routerLink]="[ '/dashboard/profile']" class="profile-option">Perfil</a>
+              <li class="user-option">
+                <a [routerLink]="['/']" class="profile-option">Início</a>
+              </li>
+              <li class="user-option">
+                <a class="profile-option">Novo artigo</a>
+              </li>
+              <li class="user-option">
+                <a [routerLink]="[ '/dashboard/overview']" class="profile-option">Painel</a>
+              </li>
+              <li class="user-option">
+                <a [routerLink]="[ '/dashboard/profile']" class="profile-option">Conta</a>
+              </li>
+              <li class="user-option">
                 <a (click)="logout()" class="profile-option">Sair</a>
               </li>
             </ul>
