@@ -6,7 +6,7 @@
   margin-bottom: 1rem;
   margin: auto;
 }
-.simpleArticleBanner {
+/* .simpleArticleBanner {
   flex: 1;
   text-align: center;
   margin-right: 1.2rem;
@@ -14,7 +14,7 @@
 }
 .simpleArticleBanner > img {
   height: 100px;
-}
+} */
 .simpleArticleTexts {
   flex: 2;
   margin-top: .5rem;

@@ -7,7 +7,7 @@
   margin: auto;
 }
 
-.rowArticleBanner {
+/* .rowArticleBanner {
   text-align: center;
   overflow: hidden;
 }
@@ -15,7 +15,7 @@
 .rowArticleBanner>img {
   width: 150px;
   height: 150px;
-}
+} */
 
 .rowArticleTexts {
   width: 500px;

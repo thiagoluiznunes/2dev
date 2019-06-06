@@ -5,14 +5,14 @@
   height: 300px;
   margin: auto;
 }
-.gridArticleBanner {
+/* .gridArticleBanner {
   width: inherit;
   text-align: center;
   overflow: hidden;
 }
 .gridArticleBanner > img {
   height: 150px;
-}
+} */
 .gridArticleTexts {
   margin-top: .5rem;
 }
