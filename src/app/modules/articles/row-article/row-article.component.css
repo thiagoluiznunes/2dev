@@ -8,13 +8,16 @@
 }
 
 /* .rowArticleBanner {
-  text-align: center;
-  overflow: hidden;
-}
-
-.rowArticleBanner>img {
-  width: 150px;
   height: 150px;
+  position: relative;
+  overflow: hidden;
+  background-position: 50% 50% !important;
+} */
+
+/* .rowArticleBanner>img {
+  height: 150px;
+  margin-left: -50%;
+  position: relative;
 } */
 
 .rowArticleTexts {

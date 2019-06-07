@@ -6,12 +6,14 @@
   margin: auto;
 }
 /* .gridArticleBanner {
-  width: inherit;
+  width: 350px;
+  height: 300px;
   text-align: center;
   overflow: hidden;
 }
 .gridArticleBanner > img {
-  height: 150px;
+  max-height: 200px;
+  margin: auto;
 } */
 .gridArticleTexts {
   margin-top: .5rem;

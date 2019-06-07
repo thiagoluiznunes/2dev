@@ -6,48 +6,70 @@
   margin-bottom: 1rem;
   margin: auto;
 }
+
 /* .simpleArticleBanner {
-  flex: 1;
+  width: 100px;
+  height: 100px;
   text-align: center;
-  margin-right: 1.2rem;
+  margin-right: 1.5rem;
+  position: relative;
   overflow: hidden;
 }
-.simpleArticleBanner > img {
-  height: 100px;
+
+.simpleArticleBanner>img {
+  margin-left: -50%;
+  position: relative;
+  height: 150px;
 } */
+
 .simpleArticleTexts {
   flex: 2;
-  margin-top: .5rem;
 }
-.simpleArticleTitle > a > h1 {
+
+.simpleArticleTitle>a>h1 {
   font-family: LucidaGrandeBold;
-  font-size: 1rem;
+  font-size: .95rem;
 }
+
 .simpleArticleInformation {
   margin-top: 1.5rem;
 }
+
 .simpletArticleAuthor {
   margin-top: 1rem;
 }
-.simpletArticleAuthor > a > h2 {
+
+.simpletArticleAuthor>a>h2 {
   font-family: LucidaGrande;
-  font-size: .85rem;
+  font-size: .8rem;
 }
-.simpleArticleStatus > span {
+
+.simpleArticleStatus>span {
   color: #757575;
   font-family: LucidaGrande;
-  font-size: .85rem;
+  font-size: .8rem;
 }
+
 .simpleArticleIcon {
   vertical-align: middle;
   margin-left: .5rem;
 }
-.simpleArticleIcon > i {
+
+.simpleArticleIcon>i {
   padding-bottom: .2rem;
 }
 
 @media only screen and (max-width: 768px) {
+  .simpleArticleContainer {
+    width: 350px;
+    height: 115px;
+    margin-bottom: 1rem;
+    margin: auto;
+  }
   .simpleArticleBanner {
     margin-right: 0rem;
+  }
+  .simpleArticleTexts {
+    margin-left: .5rem;
   }
 }
