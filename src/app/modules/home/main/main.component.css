@@ -7,7 +7,38 @@
   padding: 2rem;
 }
 
-.mostRecentArticles {
+.mostRecentTitle {
+  width: 100%;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: solid 1px #E0E0E0;
+}
+
+.mostRecentArticles .title {
+  cursor: pointer;
+  width: 11rem;
+  position: relative;
+  font-family: LucidaGrande;
+  font-size: 1rem;
+  color: #757575;
+  transition: all ease-in-out .2s;
+}
+
+.mostRecentArticles .title:hover {
+  color: #00BFA5;
+}
+
+.mostRecentArticles .icon {
+  color: #757575;
+  font-size: .7rem;
+  transition: all ease-in-out .2s;
+}
+
+.mostRecentArticles .title:hover .icon {
+  color: #00BFA5;
+}
+
+.mostRecentArticles .articles {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -31,9 +62,11 @@
   flex-direction: column;
   justify-content: center;
 }
-.mostRatedArticles > div {
+
+.mostRatedArticles>div {
   margin-bottom: 3rem;
 }
+
 .mostRecentFoundPosts {
   display: flex;
   flex: 1;
@@ -45,13 +78,16 @@
     width: 100%;
     padding: 0rem;
   }
-  .mostRecentArticles {
+  .mostRecentArticles .title {
+    margin-left: .5rem;
+  }
+  .mostRecentArticles .articles {
     flex-direction: column;
   }
-  .mostRecentArticles>app-grid-article {
+  .mostRecentArticles .articles>app-grid-article {
     margin-bottom: 1rem;
   }
-  .mostRecentArticles>app-grid-article {
+  .mostRecentArticles .articles>app-grid-article {
     margin-right: 0rem;
   }
   .simplesArticles {
