@@ -10,6 +10,7 @@ import { AuthFactory } from '../../auth/auth.factory';
 export class HeaderComponent implements OnInit {
 
   showMenu = true;
+  searchStatus = false;
   user: any;
 
   constructor(
@@ -29,11 +30,14 @@ export class HeaderComponent implements OnInit {
             this.showMenu = true;
             return;
           }
-      );
+        );
     } else {
       this.user = null;
       this.showMenu = true;
     }
+  }
+  showSearch() {
+    this.searchStatus = !this.searchStatus;
   }
   logout() {
     this.authService.logout();

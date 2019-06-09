@@ -11,15 +11,29 @@
           <a class="nav-link app-home-link" [routerLink]="['/main']">Início<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link app-contact-link" [routerLink]="['/contact']">Contato<span class="sr-only">(current)</span></a>
+          <a class="nav-link app-contact-link" [routerLink]="['/contact']">Contato<span
+              class="sr-only">(current)</span></a>
         </li>
       </ul>
+      <ul class="navbar-nav navbar-right">
+        <li class="nav-item active">
+          <a class="nav-link" (click)="showSearch()">
+            <span class="simpleArticleIcon">
+              <i class="fas fa-search"></i>
+            </span>
+          </a>
+        </li>
+      </ul>
+      <form *ngIf="searchStatus" class="form-inline mt-2 mt-md-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Busca" aria-label="Busca">
+      </form>
       <ul *ngIf="showMenu" class="navbar-nav navbar-right">
         <li class="nav-item active">
           <a class="nav-link app-login-link" [routerLink]="['/login']">Entrar<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link app-singup-link" [routerLink]="['/signup']">Registrar<span class="sr-only">(current)</span></a>
+          <a class="nav-link app-singup-link" [routerLink]="['/signup']">Registrar<span
+              class="sr-only">(current)</span></a>
         </li>
       </ul>
       <ul *ngIf="!showMenu" class="nav navbar-nav">

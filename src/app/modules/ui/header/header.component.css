@@ -3,24 +3,39 @@
   /* border-bottom: solid 1px #ccc; */
   padding: 0em;
 }
+
 .navbar-boilerplate .collapse, .navbar-collapse, .navbar-brand {
   padding: 1em;
 }
+
 .navbar-boilerplate .navbar-brand {
   color: #616161;
 }
+
 .navbar-boilerplate .nav-link {
   padding-top: 5px;
   padding-bottom: 5px;
   display: inline-flex;
-  cursor:pointer;
+  cursor: pointer;
   color: #616161;
   font-size: 15px;
   transition: color ease-in-out .2s;
 }
+
 .navbar-boilerplate .nav-link:hover {
   color: #1976d2;
 }
+
+.simpleArticleIcon {
+  color: #757575;
+  font-size: 1rem;
+  transition: all ease-in-out .2s;
+}
+
+.simpleArticleIcon:hover {
+  color: #959595;
+}
+
 .navbar-boilerplate .app-singup-link {
   border: 1px solid #ccc;
   border-radius: 3px;
@@ -30,11 +45,13 @@
   padding-right: 18px;
   transition: background-color ease-in-out .2s, border-color ease-in-out .2s, color ease-in-out .2s;
 }
+
 .navbar-boilerplate .app-singup-link:hover {
   color: rgb(255, 255, 255);
   background-color: #00BFA5;
   border-color: #00BFA5;
 }
+
 .navbar-boilerplate .app-login-link {
   padding-top: 5px;
   padding-bottom: 5px;
@@ -42,31 +59,40 @@
   padding-right: 18px;
   transition: ease-in-out .2s, border-color ease-in-out .2s, color ease-in-out .2s;
 }
+
 .navbar-boilerplate .user-image {
   margin-top: 1px;
   cursor: pointer;
 }
+
 .navbar-boilerplate .dropdown-toggle, .navbar-boilerplate .user-name {
   cursor: pointer;
   color: #616161;
   transition: all ease-in-out .2s;
 }
-.navbar-boilerplate .dropdown-toggle:hover,
-.dropdown-toggle:hover > span {
+
+.navbar-boilerplate .dropdown-toggle:hover, .dropdown-toggle:hover>span {
   color: #1976d2;
   background: transparent;
 }
-.navbar-nav > li > .dropdown-menu {
+
+.navbar-boilerplate .user-menu {
+  margin-left: 10px;
+}
+
+.navbar-nav>li>.dropdown-menu {
   width: 50px;
   padding: 10px;
   border-radius: 3px;
   border-color: #ccc;
 }
+
 .dropdown-menu .user-option {
   display: flex;
   flex-direction: column;
   background-color: #fff;
 }
+
 .dropdown-menu .profile-option {
   width: 85%;
   margin: auto;
@@ -79,9 +105,11 @@
   border-bottom-color: transparent;
   transition: all ease-in-out .2s;
 }
+
 .dropdown-menu .profile-option:hover {
   border-bottom-color: #ccc;
 }
+
 @media only screen and (max-width: 768px) {
   .user-menu {
     margin-top: 5px;
@@ -90,14 +118,12 @@
     margin-top: 2px;
     margin-right: 5px;
   }
-  .navbar-boilerplate .app-singup-link,
-  .navbar-boilerplate .app-login-link {
+  .navbar-boilerplate .app-singup-link, .navbar-boilerplate .app-login-link {
     padding-left: 0px;
     padding-right: 0px;
     border: none;
   }
-  .navbar-boilerplate .app-singup-link:hover,
-  .navbar-boilerplate .app-login-link:hover {
+  .navbar-boilerplate .app-singup-link:hover, .navbar-boilerplate .app-login-link:hover {
     background-color: transparent;
     color: #00E676;
   }
