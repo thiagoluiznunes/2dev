@@ -10,6 +10,11 @@
   border-bottom: 0 solid transparent;
 }
 
+.image-logo {
+  width: 2rem;
+  height: 2rem;
+}
+
 .skin-blue .main-header .navbar .sidebar-toggle {
   background-color: transparent;
   padding: 5px;
