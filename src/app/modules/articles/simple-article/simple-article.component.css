@@ -7,20 +7,12 @@
   margin: auto;
 }
 
-/* .simpleArticleBanner {
+.simpleArticleBanner {
   width: 100px;
   height: 100px;
-  text-align: center;
   margin-right: 1.5rem;
-  position: relative;
-  overflow: hidden;
+  background-position: 50% 50% !important;
 }
-
-.simpleArticleBanner>img {
-  margin-left: -50%;
-  position: relative;
-  height: 150px;
-} */
 
 .simpleArticleTexts {
   flex: 2;

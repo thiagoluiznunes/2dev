@@ -1,28 +1,20 @@
 .rowArticleContainer {
   display: flex;
   flex-direction: row;
-  width: 650px;
-  height: 150px;
+  max-width: 650px;
+  max-height: 150px;
   margin-bottom: 1rem;
   margin: auto;
 }
 
-/* .rowArticleBanner {
+.rowArticleBanner {
+  width: 150px;
   height: 150px;
-  position: relative;
-  overflow: hidden;
   background-position: 50% 50% !important;
-} */
-
-/* .rowArticleBanner>img {
-  height: 150px;
-  margin-left: -50%;
-  position: relative;
-} */
+}
 
 .rowArticleTexts {
-  width: 500px;
-  margin-top: .5rem;
+  max-width: 500px;
 }
 
 .rowArticleTitle>a>h1 {
@@ -69,7 +61,15 @@
 }
 
 @media only screen and (max-width: 768px) {
+  .rowArticleContainer {
+    max-height: 200px;
+  }
+  .rowArticleTexts {
+    max-width: 250px;
+  }
   .rowArticleBanner {
+    max-width: 100px;
+    max-height: 100px;
     margin-right: 0rem;
   }
 }

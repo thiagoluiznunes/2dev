@@ -31,7 +31,9 @@
   flex-direction: column;
   justify-content: center;
 }
-
+.mostRatedArticles > div {
+  margin-bottom: 3rem;
+}
 .mostRecentFoundPosts {
   display: flex;
   flex: 1;
@@ -47,12 +49,12 @@
     flex-direction: column;
   }
   .mostRecentArticles>app-grid-article {
+    margin-bottom: 1rem;
+  }
+  .mostRecentArticles>app-grid-article {
     margin-right: 0rem;
   }
   .simplesArticles {
     margin-right: 0rem;
-  }
-  .simplesArticles>app-simple-article {
-    margin-top: 1rem;
   }
 }
