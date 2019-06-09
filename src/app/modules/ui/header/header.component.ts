@@ -36,9 +36,11 @@ export class HeaderComponent implements OnInit {
       this.showMenu = true;
     }
   }
+
   showSearch() {
     this.searchStatus = !this.searchStatus;
   }
+
   logout() {
     this.authService.logout();
     this.ngOnInit();
