@@ -1,8 +1,7 @@
 <div class="mainContainer">
   <section class="mostRecentArticles">
     <div class="mostRecentTitle">
-      <h1 class="title">Ultimas publicações
-        <!-- <span style="color: #757575; font-size: .7rem;"> -->
+      <h1 class="title">Publicações recentes
         <span class="icon">
           <i class="fas fa-chevron-right"></i>
         </span>
@@ -20,6 +19,13 @@
   </section>
   <section class="itemsList">
     <section class="mostRatedArticles">
+      <div class="mostRecentTitle">
+        <h1 class="title">Mais populares
+          <span class="icon">
+            <i class="fas fa-chevron-right"></i>
+          </span>
+        </h1>
+      </div>
       <div *ngFor="let article of mostRatedArticles">
         <app-row-article style="margin-bottom: 1rem;"></app-row-article>
       </div>

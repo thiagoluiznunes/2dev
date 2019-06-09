@@ -25,7 +25,8 @@
 }
 
 .mostRecentArticles .title:hover {
-  color: #00BFA5;
+  color: #1976d2;
+  /* color: #00BFA5; */
 }
 
 .mostRecentArticles .icon {
@@ -35,7 +36,8 @@
 }
 
 .mostRecentArticles .title:hover .icon {
-  color: #00BFA5;
+  color: #1976d2;
+  /* color: #00BFA5; */
 }
 
 .mostRecentArticles .articles {
@@ -56,6 +58,33 @@
   margin: auto;
 }
 
+
+.mostRatedArticles .title {
+  cursor: pointer;
+  width: 11rem;
+  margin-top: 1.5rem;
+  position: relative;
+  font-family: LucidaGrande;
+  font-size: 1rem;
+  color: #757575;
+  transition: all ease-in-out .2s;
+}
+
+.mostRatedArticles .title:hover {
+  color: #1976d2;
+  /* color: #00BFA5; */
+}
+
+.mostRatedArticles .icon {
+  color: #757575;
+  font-size: .7rem;
+  transition: all ease-in-out .2s;
+}
+
+.mostRatedArticles .title:hover .icon {
+  color: #1976d2;
+  /* color: #00BFA5; */
+}
 .mostRatedArticles {
   display: flex;
   flex: 2;
@@ -79,13 +108,14 @@
     padding: 0rem;
   }
   .mostRecentArticles .title {
+    margin-top: .5rem;
     margin-left: .5rem;
   }
   .mostRecentArticles .articles {
     flex-direction: column;
   }
   .mostRecentArticles .articles>app-grid-article {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
   }
   .mostRecentArticles .articles>app-grid-article {
     margin-right: 0rem;
