@@ -36,11 +36,11 @@
   margin-top: 1.5rem;
 }
 
-.rowtArticleAuthor {
+.rowArticleAuthor {
   margin-top: 1rem;
 }
 
-.rowtArticleAuthor>a>h2 {
+.rowArticleAuthor>a>h2 {
   font-family: LucidaGrande;
   font-size: .85rem;
 }
@@ -54,6 +54,7 @@
 .rowArticleIcon {
   vertical-align: middle;
   margin-left: .5rem;
+  padding-top: 1px;
 }
 
 .rowArticleIcon>i {

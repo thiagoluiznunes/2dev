@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { SimpleArticleComponent } from './simple-article/simple-article.component';
 import { GridArticleComponent } from './grid-article/grid-article.component';
 import { RowArticleComponent } from './row-article/row-article.component';
+import { PageArticleComponent } from './page-article/page-article.component';
 
 @NgModule({
   declarations: [
     SimpleArticleComponent,
     GridArticleComponent,
-    RowArticleComponent
+    RowArticleComponent,
+    PageArticleComponent
   ],
   imports: [
     CommonModule,
@@ -17,7 +19,8 @@ import { RowArticleComponent } from './row-article/row-article.component';
   exports: [
     SimpleArticleComponent,
     GridArticleComponent,
-    RowArticleComponent
+    RowArticleComponent,
+    PageArticleComponent
   ]
 })
 export class ArticlesModule { }
