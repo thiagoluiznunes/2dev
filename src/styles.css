@@ -17,6 +17,10 @@
   src: url('/assets/fonts/VarelaRound-Regular.ttf');
 }
 @font-face {
+  font-family: Roboto;
+  src: url('/assets/fonts/Roboto-Regular.ttf');
+}
+@font-face {
   font-family: LucidaGrande;
   src: url('/assets/fonts/LucidaGrande.ttf');
 }

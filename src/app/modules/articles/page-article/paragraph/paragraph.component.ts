@@ -7,12 +7,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ParagraphComponent implements OnInit {
 
-  @Input() data: { type: string, data: string };
+  @Input() element: { type: string, data: string };
 
   constructor() { }
 
   ngOnInit() {
-    console.log(this.data);
+    console.log(this.element);
   }
 
 }

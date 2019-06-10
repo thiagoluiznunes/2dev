@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-figure',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./figure.component.css']
 })
 export class FigureComponent implements OnInit {
+
+  @Input() element: { type: string, data: string }[];
 
   constructor() { }
 
