@@ -5,6 +5,7 @@ import { GridArticleComponent } from './grid-article/grid-article.component';
 import { RowArticleComponent } from './row-article/row-article.component';
 import { PageArticleComponent } from './page-article/page-article.component';
 import { ParagraphComponent } from './page-article/paragraph/paragraph.component';
+import { FigureComponent } from './page-article/figure/figure.component';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { ParagraphComponent } from './page-article/paragraph/paragraph.component
     GridArticleComponent,
     RowArticleComponent,
     PageArticleComponent,
-    ParagraphComponent
+    ParagraphComponent,
+    FigureComponent
   ],
   imports: [
     CommonModule,
