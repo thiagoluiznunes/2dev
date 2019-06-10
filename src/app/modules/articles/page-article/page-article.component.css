@@ -13,14 +13,14 @@
   background-repeat: no-repeat;
 }
 
-.pageArticleTexts {}
+.pageArticleHeader {}
 
 .pageArticleTitle>a>h1 {
   font-family: LucidaGrandeBold;
   font-size: 2rem;
 }
 
-.pageArticleDescription {
+/* .pageArticleDescription {
   margin-top: 1rem;
 }
 
@@ -28,7 +28,7 @@
   color: #757575;
   font-family: LucidaGrande;
   font-size: .85rem;
-}
+} */
 
 .pageArticleInformation {
   display: flex;

@@ -1,5 +1,5 @@
 <div class="pageArticleContainer">
-  <div class="pageArticleTexts">
+  <div class="pageArticleHeader">
     <div class="pageArticleTitle">
       <a>
         <h1>Rasterization Algorithms — Computer Graphics</h1>
@@ -24,9 +24,16 @@
     </div>
   </div>
   <a class="pageArticleBanner" style="background-image: url('/assets/imgs/name1.jpeg');"></a>
-  <div class="pageArticleDescription">
+  <div class="pageArticleWriting">
+    <div *ngFor="let item of data">
+      <app-paragraph *ngIf="item.type === 'PARAGRAPH'" [data]="item"></app-paragraph>
+      <app-paragraph *ngIf="item.type === 'FIGURE'" [data]="item"></app-paragraph>
+    </div>
+  </div>
+
+  <!-- <div class="pageArticleDescription">
     <a>
       <h2>The most useful maps distort what they depict and leave out tons of possible information</h2>
     </a>
-  </div>
+  </div> -->
 </div>
