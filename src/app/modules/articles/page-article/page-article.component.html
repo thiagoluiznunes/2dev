@@ -1,9 +1,10 @@
 <div class="pageBorder">
   <aside class="pageArticleAside">
-    <div class="pageArticleLikes">
-      <span [ngClass]="scrollActivated ? 'pageArticleLikesIconActive' : 'pageArticleLikesIcon'">
+    <div [ngClass]="scrollActivated ? 'pageArticleLikesActive' : 'pageArticleLikes'">
+      <span class="pageArticleLikesIcon">
         <i class="fas fa-heart"></i>
       </span>
+      <span class="pageArticleLikesText">{{ articleData.likes }}</span>
     </div>
   </aside>
   <div class="pageArticleContainer">

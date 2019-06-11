@@ -85,23 +85,35 @@
 
 .pageArticleAside {
   position: fixed;
-  width: 15%;
+  width: 20%;
   margin-top: 10%;
 }
 
-.pageArticleLikesIcon {
+.pageArticleLikes {
   opacity: 0;
-  font-size: 1.5rem;
-  color: #1976d2;
+  color: #757575;
   transition: all ease-in-out .5s;
 }
-.pageArticleLikesIconActive {
+
+.pageArticleLikesActive {
   opacity: 1;
+  color: #757575;
   margin-left: 150px;
+  transition: all ease-in-out .5s;
+}
+
+.pageArticleLikesIcon {
   font-size: 1.5rem;
   color: #1976d2;
   transition: all ease-in-out .5s;
 }
+
+.pageArticleLikesText {
+  vertical-align: super;
+  margin-left: .5rem;
+  font-size: .95rem;
+}
+
 @media only screen and (max-width: 768px) {
   .pageArticleContainer {
     max-width: 90%;

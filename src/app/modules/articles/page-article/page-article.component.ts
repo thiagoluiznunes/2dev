@@ -31,7 +31,7 @@ export class PageArticleComponent implements OnInit, OnDestroy {
     title: 'Rasterization Algorithms — Computer Graphics',
     date: '20 Juno',
     time_reading: '3 min',
-    claps: 150,
+    likes: 150,
     elements: [
       { type: 'PARAGRAPH', data: this.first_paragraph },
       { type: 'PARAGRAPH', data: this.second_paragraph },
@@ -44,7 +44,7 @@ export class PageArticleComponent implements OnInit, OnDestroy {
 
   constructor(private route: ActivatedRoute) {
     this.scrollActivated = false;
-   }
+  }
 
   ngOnInit() {
     window.addEventListener('scroll', this.scrollEvent, true);
