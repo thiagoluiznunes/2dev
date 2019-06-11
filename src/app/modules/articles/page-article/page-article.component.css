@@ -3,6 +3,7 @@
   -webkit-box-shadow: 0px 0px 10px .2px rgba(0, 0, 0, .1);
   box-shadow: 0px 0px 10px .2px rgba(0, 0, 0, .1);
 }
+
 .pageArticleContainer {
   display: flex;
   flex-direction: column;
@@ -82,6 +83,25 @@
   padding-bottom: .2rem;
 }
 
+.pageArticleAside {
+  position: fixed;
+  width: 15%;
+  margin-top: 10%;
+}
+
+.pageArticleLikesIcon {
+  opacity: 0;
+  font-size: 1.5rem;
+  color: #1976d2;
+  transition: all ease-in-out .5s;
+}
+.pageArticleLikesIconActive {
+  opacity: 1;
+  margin-left: 150px;
+  font-size: 1.5rem;
+  color: #1976d2;
+  transition: all ease-in-out .5s;
+}
 @media only screen and (max-width: 768px) {
   .pageArticleContainer {
     max-width: 90%;

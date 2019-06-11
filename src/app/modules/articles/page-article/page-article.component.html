@@ -1,4 +1,11 @@
 <div class="pageBorder">
+  <aside class="pageArticleAside">
+    <div class="pageArticleLikes">
+      <span [ngClass]="scrollActivated ? 'pageArticleLikesIconActive' : 'pageArticleLikesIcon'">
+        <i class="fas fa-heart"></i>
+      </span>
+    </div>
+  </aside>
   <div class="pageArticleContainer">
     <div class="pageArticleHeader">
       <div class="pageArticleTitle">

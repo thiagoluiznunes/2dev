@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -6,7 +6,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './page-article.component.html',
   styleUrls: ['./page-article.component.css']
 })
-export class PageArticleComponent implements OnInit {
+export class PageArticleComponent implements OnInit, OnDestroy {
 
   first_paragraph = `
   Bem, no meu caso em particular, eu integrei meu
@@ -33,18 +33,37 @@ export class PageArticleComponent implements OnInit {
     time_reading: '3 min',
     claps: 150,
     elements: [
-      { type: 'PARAGRAPH', data: this.first_paragraph},
-      { type: 'PARAGRAPH', data: this.second_paragraph},
-      { type: 'FIGURE', data: '/assets/imgs/name3.jpg'},
-      { type: 'PARAGRAPH', data: 'I am a computer science developer'},
+      { type: 'PARAGRAPH', data: this.first_paragraph },
+      { type: 'PARAGRAPH', data: this.second_paragraph },
+      { type: 'FIGURE', data: '/assets/imgs/name3.jpg' },
+      { type: 'PARAGRAPH', data: 'I am a computer science developer' },
     ]
   };
 
-  constructor(private route: ActivatedRoute) { }
+  scrollActivated: boolean;
+
+  constructor(private route: ActivatedRoute) {
+    this.scrollActivated = false;
+   }
 
   ngOnInit() {
+    window.addEventListener('scroll', this.scrollEvent, true);
+
     this.route.params.subscribe(res => {
       console.log('Page response from url: ', res);
     });
+  }
+
+  ngOnDestroy() {
+    window.removeEventListener('scroll', this.scrollEvent, true);
+  }
+
+  scrollEvent = (event: any): void => {
+    const number = event.pageY;
+    if (number > 75) {
+      this.scrollActivated = true;
+    } else {
+      this.scrollActivated = false;
+    }
   }
 }
