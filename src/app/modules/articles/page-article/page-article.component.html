@@ -1,10 +1,19 @@
 <div class="pageBorder">
   <aside class="pageArticleAside">
-    <div [ngClass]="scrollActivated ? 'pageArticleLikesActive' : 'pageArticleLikes'">
-      <span class="pageArticleLikesIcon">
-        <i class="fas fa-heart"></i>
-      </span>
-      <span class="pageArticleLikesText">{{ articleData.likes }}</span>
+    <div [ngClass]="scrollActivated ? 'pageArticleAsideIconsActive' : 'pageArticleAsideIcons'">
+      <div class="pageArticleLike">
+        <span class="pageArticleLikesIcon">
+          <i class="fas fa-heart"></i>
+        </span>
+        <span class="pageArticleLikesText">{{ articleData.likes }}</span>
+      </div>
+      <div class="pageArticleFaceBook">
+        <a target="_blank" href="{{ facebookUrl }}">
+          <span class="pageArticleFaceBookIcon">
+            <i class="fab fa-facebook-square"></i>
+          </span>
+        </a>
+      </div>
     </div>
   </aside>
   <div class="pageArticleContainer">

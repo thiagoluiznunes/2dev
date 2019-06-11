@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-page-article',
@@ -31,7 +31,8 @@ export class PageArticleComponent implements OnInit, OnDestroy {
     title: 'Rasterization Algorithms — Computer Graphics',
     date: '20 Juno',
     time_reading: '3 min',
-    likes: 150,
+    likes: 33,
+    views: 81,
     elements: [
       { type: 'PARAGRAPH', data: this.first_paragraph },
       { type: 'PARAGRAPH', data: this.second_paragraph },
@@ -41,8 +42,11 @@ export class PageArticleComponent implements OnInit, OnDestroy {
   };
 
   scrollActivated: boolean;
+  facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${window.location.href}`;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router) {
     this.scrollActivated = false;
   }
 
@@ -58,6 +62,10 @@ export class PageArticleComponent implements OnInit, OnDestroy {
     window.removeEventListener('scroll', this.scrollEvent, true);
   }
 
+  shareOnFaceBook() {
+    const facebook = 'https://www.facebook.com/sharer/sharer.php?u=';
+    this.router.navigateByUrl(`${facebook}${window.location.href}`);
+  }
   scrollEvent = (event: any): void => {
     const number = event.pageY;
     if (number > 75) {
