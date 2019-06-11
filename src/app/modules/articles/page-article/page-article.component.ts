@@ -68,7 +68,7 @@ export class PageArticleComponent implements OnInit, OnDestroy {
   }
   scrollEvent = (event: any): void => {
     const number = event.pageY;
-    if (number > 75) {
+    if (number > 100) {
       this.scrollActivated = true;
     } else {
       this.scrollActivated = false;
