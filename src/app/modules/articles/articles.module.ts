@@ -17,7 +17,7 @@ import { FigureComponent } from './page-article/figure/figure.component';
     FigureComponent
   ],
   imports: [
-    CommonModule,
+    CommonModule
   ],
   providers: [],
   exports: [

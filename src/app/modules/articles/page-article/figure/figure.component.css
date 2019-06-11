@@ -1,0 +1,10 @@
+.figureElement {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.figureElement > img {
+  max-height: 300px;
+  background-position: 50% 50% !important;
+  background-repeat: no-repeat;
+}

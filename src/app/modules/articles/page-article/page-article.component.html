@@ -2,7 +2,7 @@
   <div class="pageArticleHeader">
     <div class="pageArticleTitle">
       <a>
-        <h1>Rasterization Algorithms — Computer Graphics</h1>
+        <h1>{{ articleData.title }}</h1>
       </a>
     </div>
     <div class="pageArticleInformation">
@@ -10,13 +10,13 @@
       <div class="informations">
         <div class="pageArticleAuthor">
           <a>
-            <h2>Thiago Luiz</h2>
+            <h2>{{ articleData.author }}</h2>
           </a>
         </div>
         <div class="pageArticleStatus">
-          <span class="pageArticleDate">20 May - </span>
-          <span class="pageArticleTime"> 13 min</span>
-          <span class="pageArticleIcon" style="color: #757575; font-size: .6rem;">
+          <span class="pageArticleDate">{{ articleData.date }} - </span>
+          <span class="pageArticleTime">{{ articleData.time_reading }}</span>
+          <span class="pageArticleIcon">
             <i class="fas fa-star"></i>
           </span>
         </div>
@@ -25,9 +25,9 @@
   </div>
   <a class="pageArticleBanner" style="background-image: url('/assets/imgs/name1.jpeg');"></a>
   <div class="pageArticleWriting">
-    <div *ngFor="let item of data">
+    <div *ngFor="let item of articleData.elements">
       <app-paragraph *ngIf="item.type === 'PARAGRAPH'" [element]="item"></app-paragraph>
-      <!-- <app-figure *ngIf="item.type === 'FIGURE'" [element]="item"></app-figure> -->
+      <app-figure *ngIf="item.type === 'FIGURE'" [element]="item"></app-figure>
     </div>
   </div>
 

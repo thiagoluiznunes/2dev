@@ -15,6 +15,10 @@ const routes: Routes = [
     loadChildren: './modules/signup/signup.module#SignupModule',
   },
   {
+    path: 'articles',
+    loadChildren: './modules/articles/articles.module#ArticlesModule',
+  },
+  {
     path: '',
     loadChildren: './modules/home/home.module#HomeModule',
   },

@@ -23,7 +23,7 @@ export class MainComponent implements OnInit {
     },
     {
       type: 'FIGURE',
-      data: 'It is a figure data to be used for everyone!'
+      data: '/assets/imgs/name2.png'
     },
     {
       type: 'PARAGRAPH',
@@ -37,7 +37,7 @@ export class MainComponent implements OnInit {
     },
     {
       type: 'FIGURE',
-      data: 'It is a figure data to be used for everyone!'
+      data: '/assets/imgs/name3.jpg'
     },
   ];
 
