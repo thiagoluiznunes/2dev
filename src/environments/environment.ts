@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:3000/api/v1',
+  ci_auth_service: 'http://localhost:3000/api/v1',
+  ci_articles_service: 'http://localhost:3000/api/v1',
   app_userkey: 'user_storage',
 };
 

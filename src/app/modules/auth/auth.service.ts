@@ -12,7 +12,7 @@ import ICallback from '../../shared/types/icallback.types';
 
 export class AuthService {
   private user = null;
-  private api = environment.apiUrl;
+  private api = environment.ci_auth_service;
 
   emitterIsAuthenticated = new EventEmitter<boolean>();
 
@@ -46,11 +46,11 @@ export class AuthService {
   }
 
   login(user: any, callback: ICallback): any {
-    this.submit('auth', user, callback);
+    this.submit('auth/login', user, callback);
   }
 
   signup(user: any, callback: ICallback): any {
-    this.submit('users', user, callback);
+    this.submit('auth/signup', user, callback);
   }
 
   logout(callback?: ICallback): any {
