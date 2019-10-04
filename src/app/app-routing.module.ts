@@ -4,23 +4,28 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: 'dashboard',
-    loadChildren: './modules/dashboard/dashboard.module#DashboardModule',
+    loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule),
+    // loadChildren: './modules/dashboard/dashboard.module#DashboardModule',
   },
   {
     path: 'login',
-    loadChildren: './modules/login/login.module#LoginModule',
+    loadChildren: () => import('./modules/login/login.module').then(m => m.LoginModule),
+    // loadChildren: './modules/login/login.module#LoginModule',
   },
   {
     path: 'signup',
-    loadChildren: './modules/signup/signup.module#SignupModule',
+    loadChildren: () => import('./modules/signup/signup.module').then(m => m.SignupModule),
+    // loadChildren: './modules/signup/signup.module#SignupModule',
   },
   {
     path: 'articles',
-    loadChildren: './modules/articles/articles.module#ArticlesModule',
+    loadChildren: () => import('./modules/articles/articles.module').then(m => m.ArticlesModule),
+    // loadChildren: './modules/articles/articles.module#ArticlesModule',
   },
   {
     path: '',
-    loadChildren: './modules/home/home.module#HomeModule',
+    loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule),
+    // loadChildren: './modules/home/home.module#HomeModule',
   },
   {
     path: '**',
