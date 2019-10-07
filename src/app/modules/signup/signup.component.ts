@@ -47,9 +47,8 @@ export class SignupComponent implements OnInit {
       return;
     }
     if (!this.terms_service) {
-      this.toastr.error(`Aceite os Termos de Serviço`);
+      this.toastr.error(`É necessário aceitar os Termos de Serviço`);
       return;
-
     }
     this.authService.signup(this.user, (err, res) => {
       if (err) {
