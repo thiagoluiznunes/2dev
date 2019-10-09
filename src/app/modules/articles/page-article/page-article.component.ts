@@ -1,12 +1,13 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, HostListener, Inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-page-article',
   templateUrl: './page-article.component.html',
   styleUrls: ['./page-article.component.css']
 })
-export class PageArticleComponent implements OnInit, OnDestroy {
+export class PageArticleComponent implements OnInit {
 
   first_paragraph = `
   Bem, no meu caso em particular, eu integrei meu
@@ -46,32 +47,30 @@ export class PageArticleComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router) {
+    private router: Router,
+    @Inject(DOCUMENT) private document: Document) {
     this.scrollActivated = false;
   }
 
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    if (document.body.scrollTop > 100 ||
+      document.documentElement.scrollTop > 100) {
+      this.scrollActivated = true;
+    } else {
+      this.scrollActivated = false;
+    }
+  }
+
   ngOnInit() {
-    window.addEventListener('scroll', this.scrollEvent, true);
 
     this.route.params.subscribe(res => {
       console.log('Page response from url: ', res);
     });
   }
 
-  ngOnDestroy() {
-    window.removeEventListener('scroll', this.scrollEvent, true);
-  }
-
   shareOnFaceBook() {
     const facebook = 'https://www.facebook.com/sharer/sharer.php?u=';
     this.router.navigateByUrl(`${facebook}${window.location.href}`);
-  }
-  scrollEvent = (event: any): void => {
-    const number = event.pageY;
-    if (number > 100) {
-      this.scrollActivated = true;
-    } else {
-      this.scrollActivated = false;
-    }
   }
 }
