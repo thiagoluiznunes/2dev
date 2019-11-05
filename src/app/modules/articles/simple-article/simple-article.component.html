@@ -3,18 +3,18 @@
   <div class="simpleArticleTexts">
     <div class="simpleArticleTitle">
       <a>
-        <h1>Rasterization Algorithms — Computer Graphics</h1>
+        <h1>{{ articleBody.title }}</h1>
       </a>
     </div>
     <div class="simpleArticleInformation">
       <div class="simpletArticleAuthor">
         <a>
-          <h2>Thiago Luiz Full-stack developer</h2>
+          <h2>{{ articleBody.author }}</h2>
         </a>
       </div>
       <div class="simpleArticleStatus">
-        <span class="simpleArticleDate">20 May - </span>
-        <span class="simpleArticleTime"> 13 min</span>
+        <span class="simpleArticleDate">{{ labelDate }} - </span>
+        <span class="simpleArticleTime"> {{ articleBody.time_reading }} min</span>
         <span class="simpleArticleIcon" style="color: #757575; font-size: .6rem;">
           <i class="fas fa-star"></i>
           <!-- <i class="fas fa-clock"></i> -->

@@ -8,13 +8,13 @@
       </h1>
     </div>
     <div class="articles">
-      <app-grid-article></app-grid-article>
+      <app-grid-article [articleBody]="latestArticles[0]"></app-grid-article>
       <div class="simplesArticles">
-        <app-simple-article></app-simple-article>
-        <app-simple-article></app-simple-article>
-        <app-simple-article></app-simple-article>
+        <app-simple-article [articleBody]="latestArticles[1]"></app-simple-article>
+        <app-simple-article [articleBody]="latestArticles[2]"></app-simple-article>
+        <app-simple-article [articleBody]="latestArticles[3]"></app-simple-article>
       </div>
-      <app-grid-article></app-grid-article>
+      <app-grid-article [articleBody]="latestArticles[4]"></app-grid-article>
     </div>
   </section>
   <!-- <app-page-article [data]="article"></app-page-article> -->

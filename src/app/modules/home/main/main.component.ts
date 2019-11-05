@@ -1,56 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
-export class MainComponent implements OnInit {
+export class MainComponent implements OnInit, OnChanges {
 
-  article: { type: string, data: string }[] = [
-    {
-      type: 'PARAGRAPH',
-      data: `
-      Bem, no meu caso em particular, eu
-      integrei meu repositório do GitHub ao Travis
-      CI para a Integração Continua do meu projeto,
-      também integrei o mesmo repositório ao Code Climate
-      para monitorar a qualidade do código. Os testes foram
-      desenvolvidos utilizando a estratégia TDD com auxílio
-      das ferramentas Mocha & Chai para Node.js e para
-      mensurar a qualidade destes testes foi utilizado o Instanbul coverage.'
-      `
-    },
-    {
-      type: 'FIGURE',
-      data: '/assets/imgs/name2.png'
-    },
-    {
-      type: 'PARAGRAPH',
-      data: `
-      Então, o objetivo era rodar a suite de testes no Travis CI
-      e enviar os resultados dos testes ao Code Climate que exibiria
-      a porcentagem de cobertura de testes. Ué!? Simples demais.
-      Para mim como iniciante
-      no CI e no Test Coverage não foi um tarefa fácil, porém não impossivel.
-      `
-    },
-    {
-      type: 'FIGURE',
-      data: '/assets/imgs/name3.jpg'
-    },
-  ];
 
-  mostRatedArticles: Object = [
-    '',
-    '',
-    '',
-    '',
-    '',
-    '',
-    ''
-  ];
-  constructor() { }
+  latestArticles: JSON;
+
+  constructor(private route: ActivatedRoute) {
+    this.route.data.subscribe(
+      data => {
+        this.latestArticles = data.articles;
+      }
+    );
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('Before ngOnInit');
+    throw new Error('Method not implemented.');
+  }
 
   ngOnInit() {
   }

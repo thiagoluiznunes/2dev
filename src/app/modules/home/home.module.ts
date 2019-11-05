@@ -8,6 +8,7 @@ import { UserDetailResolver } from 'src/app/core/guards/user.detail.guard';
 import { MainComponent } from './main/main.component';
 import { ContactComponent } from './contact/contact.component';
 import { ArticlesModule } from '../articles/articles.module';
+import { ArticlesDetailResolver } from 'src/app/core/guards/articles.detail.guard';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,6 @@ import { ArticlesModule } from '../articles/articles.module';
     UiModule,
     ArticlesModule
   ],
-  providers: [UserDetailResolver]
+  providers: [UserDetailResolver, ArticlesDetailResolver]
 })
 export class HomeModule { }

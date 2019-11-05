@@ -33,7 +33,7 @@
           </div>
           <div class="pageArticleStatus">
             <span class="pageArticleDate">{{ articleData.date }} - </span>
-            <span class="pageArticleTime">{{ articleData.time_reading }}</span>
+            <span class="pageArticleTime">{{ articleData.time_reading }} min</span>
             <span class="pageArticleIcon">
               <i class="fas fa-star"></i>
             </span>
@@ -43,7 +43,7 @@
     </div>
     <a class="pageArticleBanner" style="background-image: url('/assets/imgs/name1.jpeg');"></a>
     <div class="pageArticleWriting">
-      <div *ngFor="let item of articleData.elements">
+      <div *ngFor="let item of articleData.article_body">
         <app-paragraph *ngIf="item.type === 'PARAGRAPH'" [element]="item"></app-paragraph>
         <app-figure *ngIf="item.type === 'FIGURE'" [element]="item"></app-figure>
       </div>

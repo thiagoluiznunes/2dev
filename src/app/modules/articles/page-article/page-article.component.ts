@@ -31,10 +31,10 @@ export class PageArticleComponent implements OnInit {
     author: 'Thiago Luiz Nunes ',
     title: 'Rasterization Algorithms — Computer Graphics',
     date: '20 Juno',
-    time_reading: '3 min',
+    time_reading: '3',
     likes: 33,
     views: 81,
-    elements: [
+    article_body: [
       { type: 'PARAGRAPH', data: this.first_paragraph },
       { type: 'PARAGRAPH', data: this.second_paragraph },
       { type: 'FIGURE', data: '/assets/imgs/name3.jpg' },
