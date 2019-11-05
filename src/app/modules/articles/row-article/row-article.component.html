@@ -2,28 +2,28 @@
   <div class="rowArticleTexts">
     <div class="rowArticleTitle">
       <a>
-        <h1>Rasterization Algorithms — Computer Graphics</h1>
+        <h1>{{ articleBody.title }}</h1>
       </a>
     </div>
     <div class="rowArticleDescription">
       <a>
-        <h2>The most useful maps distort what they depict and leave out tons of possible information</h2>
+        <h2>{{ articleBody.brief_description }}</h2>
       </a>
     </div>
     <div class="rowArticleInformation">
       <div class="rowArticleAuthor">
         <a>
-          <h2>Thiago Luiz Full-stack developer</h2>
+          <h2>{{ articleBody.author }}</h2>
         </a>
       </div>
       <div class="rowArticleStatus">
-        <span class="rowArticleDate">20 May - </span>
-        <span class="rowArticleTime"> 13 min</span>
+        <span class="rowArticleDate">{{ labelDate }} - </span>
+        <span class="rowArticleTime"> {{ articleBody.time_reading }} min</span>
         <span class="rowArticleIcon" style="color: #757575; font-size: .6rem;">
           <i class="fas fa-star"></i>
         </span>
       </div>
     </div>
   </div>
-  <a class="rowArticleBanner" style="background-image: url('/assets/imgs/name1.jpeg');"></a>
+  <a class="rowArticleBanner" [style.background-image]="'url(\'' + articleBody.banner + '\')'"></a>
 </div>

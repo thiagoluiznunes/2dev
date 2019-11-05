@@ -8,13 +8,14 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MainComponent implements OnInit, OnChanges {
 
-
   latestArticles: JSON;
+  topRatedArticles: JSON;
 
   constructor(private route: ActivatedRoute) {
     this.route.data.subscribe(
       data => {
-        this.latestArticles = data.articles;
+        this.latestArticles = data.articles[0];
+        this.topRatedArticles = data.articles[1];
       }
     );
   }

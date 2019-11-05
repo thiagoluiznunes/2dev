@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ArticleService } from 'src/app/modules/articles/articles.service';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, map, withLatestFrom } from 'rxjs/operators';
 
 @Injectable()
 export class ArticlesDetailResolver implements Resolve<any> {
@@ -15,9 +15,9 @@ export class ArticlesDetailResolver implements Resolve<any> {
 
     return this.articleService.getLatestArticles()
       .pipe(
-        map(data => {
-          return data;
-        }),
+        withLatestFrom(
+          this.articleService.getTopRatedArticles()
+        ),
         catchError((err) => {
           return err;
         })

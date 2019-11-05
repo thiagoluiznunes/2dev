@@ -21,7 +21,15 @@ export class ArticleService {
   getLatestArticles(): Observable<any> {
     return this.http.get<any>(`${this.api}/articles/latest`)
       .pipe(
-        retry(1), // retry a failed request up to 3 times
+        retry(1), // retry a failed request up to 1 times
+        catchError(err => of(`An error occurred:: ${err}`))
+      );
+  }
+
+  getTopRatedArticles(): Observable<any> {
+    return this.http.get<any>(`${this.api}/articles/top-rated`)
+      .pipe(
+        retry(1),
         catchError(err => of(`An error occurred:: ${err}`))
       );
   }

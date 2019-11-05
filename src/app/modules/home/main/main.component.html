@@ -27,8 +27,8 @@
           </span>
         </h1>
       </div>
-      <div *ngFor="let article of mostRatedArticles">
-        <app-row-article style="margin-bottom: 1rem;"></app-row-article>
+      <div *ngFor="let article of topRatedArticles">
+        <app-row-article [articleBody]="article" style="margin-bottom: 1rem;"></app-row-article>
       </div>
     </section>
     <!-- <section class="mostRecentFoundPosts">
