@@ -1,7 +1,7 @@
 .simpleArticleContainer {
   display: flex;
   flex-direction: row;
-  width: 400px;
+  width: 350px;
   height: 115px;
   margin-bottom: 1rem;
   margin: auto;

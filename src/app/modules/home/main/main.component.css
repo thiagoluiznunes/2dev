@@ -15,11 +15,12 @@
     opacity: 1;
   }
 }
+
 .mainContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 90%;
+  width: 100%;
   margin: auto;
   padding: 2rem;
   animation: mainFadeInOut .3s linear;
@@ -30,6 +31,12 @@
   margin-bottom: 2rem;
   padding-bottom: 1rem;
   border-bottom: solid 1px #E0E0E0;
+}
+
+.mostRecentArticles {
+  -webkit-box-pack: center;
+  box-sizing: border-box;
+  margin: 12px auto 0 auto;
 }
 
 .mostRecentArticles .title {
@@ -61,13 +68,14 @@
 .mostRecentArticles .articles {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  flex-flow: wrap;
 }
 
 .simplesArticles {
   display: flex;
   flex-direction: column;
-  margin-bottom: 1rem;
+  margin: 0 1rem 1rem 1rem;
 }
 
 .itemsList {
@@ -75,7 +83,6 @@
   flex-direction: row;
   margin: auto;
 }
-
 
 .mostRatedArticles .title {
   cursor: pointer;
@@ -103,6 +110,7 @@
   color: #1976d2;
   /* color: #00BFA5; */
 }
+
 .mostRatedArticles {
   display: flex;
   flex: 2;
@@ -118,6 +126,12 @@
   display: flex;
   flex: 1;
   flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .simplesArticles {
+    margin: .5rem 0px 1rem 0;
+  }
 }
 
 @media only screen and (max-width: 768px) {
