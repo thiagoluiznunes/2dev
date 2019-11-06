@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import * as moment from 'moment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-row-article',
@@ -11,11 +12,15 @@ export class RowArticleComponent implements OnInit {
   @Input() articleBody: any;
   labelDate: String;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     const date = new Date(this.articleBody.createdAt);
     moment.locale('pt-BR');
     this.labelDate = moment(date).format('ll');
+  }
+
+  rowArticleClick() {
+    this.router.navigate(['article', this.articleBody.username, this.articleBody._id]);
   }
 }

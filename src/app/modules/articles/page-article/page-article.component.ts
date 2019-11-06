@@ -1,6 +1,7 @@
 import { Component, OnInit, HostListener, Inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DOCUMENT } from '@angular/common';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-page-article',
@@ -10,6 +11,7 @@ import { DOCUMENT } from '@angular/common';
 export class PageArticleComponent implements OnInit {
 
   article: any;
+  labelDate: String;
   scrollActivated: boolean;
   facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${window.location.href}`;
 
@@ -36,6 +38,9 @@ export class PageArticleComponent implements OnInit {
   }
 
   ngOnInit() {
+    const date = new Date(this.article.createdAt);
+    moment.locale('pt-BR');
+    this.labelDate = moment(date).format('ll');
   }
 
   shareOnFaceBook() {

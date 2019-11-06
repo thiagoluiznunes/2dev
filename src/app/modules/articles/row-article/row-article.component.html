@@ -1,4 +1,4 @@
-<div class="rowArticleContainer">
+<div (click)="rowArticleClick()" class="rowArticleContainer">
   <div class="rowArticleTexts">
     <div class="rowArticleTitle">
       <a>
@@ -20,7 +20,7 @@
         <span class="rowArticleDate">{{ labelDate }} - </span>
         <span class="rowArticleTime"> {{ articleBody.time_reading }} min</span>
         <span class="rowArticleIcon" style="color: #757575; font-size: .6rem;">
-          <i class="fas fa-star"></i>
+          <i class="fas fa-star" style="color: #EFCE4A;"></i>
         </span>
       </div>
     </div>
