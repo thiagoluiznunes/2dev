@@ -23,7 +23,8 @@
 }
 
 .navbar-boilerplate .nav-link:hover {
-  color: #1976d2;
+  /* color: #1976d2; */
+  color: #00B7FF;
 }
 
 .simpleArticleIcon {
@@ -72,7 +73,8 @@
 }
 
 .navbar-boilerplate .dropdown-toggle:hover, .dropdown-toggle:hover>span {
-  color: #1976d2;
+  /* color: #1976d2; */
+  color: #00B7FF;
   background: transparent;
 }
 
