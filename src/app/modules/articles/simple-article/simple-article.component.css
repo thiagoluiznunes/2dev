@@ -5,6 +5,7 @@
   height: 115px;
   margin-bottom: 1rem;
   margin: auto;
+  cursor: pointer;
 }
 
 .simpleArticleBanner {

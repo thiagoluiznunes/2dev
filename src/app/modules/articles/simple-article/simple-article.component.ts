@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import * as moment from 'moment';
 
 @Component({
@@ -11,7 +12,7 @@ export class SimpleArticleComponent implements OnInit {
   @Input() articleBody: any;
   labelDate: String;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     const date = new Date(this.articleBody.createdAt);
@@ -19,4 +20,7 @@ export class SimpleArticleComponent implements OnInit {
     this.labelDate = moment(date).format('ll');
   }
 
+  simpleArticleClick() {
+    this.router.navigate(['article', this.articleBody.username, this.articleBody._id]);
+  }
 }

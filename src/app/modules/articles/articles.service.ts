@@ -33,4 +33,12 @@ export class ArticleService {
         catchError(err => of(`An error occurred:: ${err}`))
       );
   }
+
+  getArticleById(_id: String): Observable<any> {
+    return this.http.get<any>(`${this.api}/article/${_id}`)
+      .pipe(
+        retry(1),
+        catchError(err => of(`An error occurred:: ${err}`))
+      );
+  }
 }

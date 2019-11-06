@@ -5,6 +5,7 @@
   max-height: 150px;
   margin-bottom: 1rem;
   margin: auto;
+  cursor: pointer;
 }
 
 .rowArticleBanner {

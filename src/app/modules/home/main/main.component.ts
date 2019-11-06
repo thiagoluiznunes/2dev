@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -6,7 +6,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
-export class MainComponent implements OnInit, OnChanges {
+export class MainComponent implements OnInit {
 
   latestArticles: JSON;
   topRatedArticles: JSON;
@@ -18,11 +18,6 @@ export class MainComponent implements OnInit, OnChanges {
         this.topRatedArticles = data.articles[1];
       }
     );
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log('Before ngOnInit');
-    throw new Error('Method not implemented.');
   }
 
   ngOnInit() {

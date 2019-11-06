@@ -5,7 +5,7 @@
         <span class="pageArticleLikesIcon">
           <i class="fas fa-heart"></i>
         </span>
-        <span class="pageArticleLikesText">{{ articleData.likes }}</span>
+        <span class="pageArticleLikesText">{{ article.likes }}</span>
       </div>
       <div class="pageArticleFaceBook">
         <a target="_blank" href="{{ facebookUrl }}">
@@ -20,7 +20,7 @@
     <div class="pageArticleHeader">
       <div class="pageArticleTitle">
         <a>
-          <h1>{{ articleData.title }}</h1>
+          <h1>{{ article.title }}</h1>
         </a>
       </div>
       <div class="pageArticleInformation">
@@ -28,12 +28,12 @@
         <div class="informations">
           <div class="pageArticleAuthor">
             <a>
-              <h2>{{ articleData.author }}</h2>
+              <h2>{{ article.author }}</h2>
             </a>
           </div>
           <div class="pageArticleStatus">
-            <span class="pageArticleDate">{{ articleData.date }} - </span>
-            <span class="pageArticleTime">{{ articleData.time_reading }} min</span>
+            <span class="pageArticleDate">{{ article.date }} - </span>
+            <span class="pageArticleTime">{{ article.time_reading }} min</span>
             <span class="pageArticleIcon">
               <i class="fas fa-star"></i>
             </span>
@@ -43,7 +43,7 @@
     </div>
     <a class="pageArticleBanner" style="background-image: url('/assets/imgs/name1.jpeg');"></a>
     <div class="pageArticleWriting">
-      <div *ngFor="let item of articleData.article_body">
+      <div *ngFor="let item of article.article_body">
         <app-paragraph *ngIf="item.type === 'PARAGRAPH'" [element]="item"></app-paragraph>
         <app-figure *ngIf="item.type === 'FIGURE'" [element]="item"></app-figure>
       </div>
