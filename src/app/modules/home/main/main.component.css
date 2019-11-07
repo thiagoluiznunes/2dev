@@ -27,10 +27,13 @@
 }
 
 .mostRecentTitle {
+  display: flex;
+  flex-direction: row;
   width: 100%;
   margin-bottom: 2rem;
   padding-bottom: 1rem;
   border-bottom: solid 1px #E0E0E0;
+  justify-content: space-between;
 }
 
 .mostRecentArticles {
@@ -78,7 +81,11 @@
 .simplesArticles {
   display: flex;
   flex-direction: column;
-  margin: 0 1rem 1rem 1rem;
+  margin: 0 1rem 1rem 2rem;
+}
+
+.simplesArticles>app-simple-article {
+  margin-bottom: .65rem;
 }
 
 .itemsList {
@@ -87,10 +94,12 @@
   margin: auto;
 }
 
+.mostRatedArticles {
+  margin-top: 1.5rem;
+}
 .mostRatedArticles .title {
   cursor: pointer;
   width: 11rem;
-  margin-top: 1.5rem;
   position: relative;
   font-family: LucidaGrande;
   font-size: 1rem;
