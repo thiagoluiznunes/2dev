@@ -1,13 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
-import * as moment from 'moment';
 import { Router } from '@angular/router';
+import * as moment from 'moment';
 
 @Component({
-  selector: 'app-row-article',
-  templateUrl: './row-article.component.html',
-  styleUrls: ['./row-article.component.css']
+  selector: 'app-simple-article',
+  templateUrl: './simple-article.component.html',
+  styleUrls: ['./simple-article.component.css']
 })
-export class RowArticleComponent implements OnInit {
+export class SimpleArticleComponent implements OnInit {
 
   @Input() articleBody: any;
   labelDate: String;
@@ -20,7 +20,7 @@ export class RowArticleComponent implements OnInit {
     this.labelDate = moment(date).format('ll');
   }
 
-  rowArticleClick() {
-    this.router.navigate(['article', this.articleBody.username, this.articleBody._id]);
+  simpleArticleClick() {
+    this.router.navigate(['artigo', this.articleBody.username, this.articleBody._id]);
   }
 }

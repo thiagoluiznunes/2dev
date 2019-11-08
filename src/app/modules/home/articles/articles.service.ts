@@ -2,8 +2,8 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
-import { environment } from '../../../environments/environment';
-import ICallback from '../../shared/types/icallback.types';
+import { environment } from '../../../../environments/environment';
+import ICallback from '../../../shared/types/icallback.types';
 import { error } from 'util';
 
 @Injectable({

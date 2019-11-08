@@ -17,11 +17,11 @@ const routes: Routes = [
     loadChildren: () => import('./modules/signup/signup.module').then(m => m.SignupModule),
     // loadChildren: './modules/signup/signup.module#SignupModule',
   },
-  {
-    path: 'articles',
-    loadChildren: () => import('./modules/articles/articles.module').then(m => m.ArticlesModule),
-    // loadChildren: './modules/articles/articles.module#ArticlesModule',
-  },
+  // {
+  //   path: 'article',
+  //   loadChildren: () => import('./modules/home/articles/articles.module').then(m => m.ArticlesModule),
+  //   // loadChildren: './modules/articles/articles.module#ArticlesModule',
+  // },
   {
     path: '',
     loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule),

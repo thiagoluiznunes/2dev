@@ -3,17 +3,16 @@ import * as moment from 'moment';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-grid-article',
-  templateUrl: './grid-article.component.html',
-  styleUrls: ['./grid-article.component.css']
+  selector: 'app-row-article',
+  templateUrl: './row-article.component.html',
+  styleUrls: ['./row-article.component.css']
 })
-export class GridArticleComponent implements OnInit {
+export class RowArticleComponent implements OnInit {
 
   @Input() articleBody: any;
   labelDate: String;
 
-  constructor(private router: Router) {
-  }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     const date = new Date(this.articleBody.createdAt);
@@ -21,7 +20,7 @@ export class GridArticleComponent implements OnInit {
     this.labelDate = moment(date).format('ll');
   }
 
-  gridArticleClick() {
-    this.router.navigate(['article', this.articleBody.username, this.articleBody._id]);
+  rowArticleClick() {
+    this.router.navigate(['artigo', this.articleBody.username, this.articleBody._id]);
   }
 }

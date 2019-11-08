@@ -7,7 +7,7 @@ import { HomeRoutingModule } from './home.routing.module';
 import { UserDetailResolver } from 'src/app/core/guards/user.detail.guard';
 import { MainComponent } from './main/main.component';
 import { ContactComponent } from './contact/contact.component';
-import { ArticlesModule } from '../articles/articles.module';
+import { ArticlesModule } from './articles/articles.module';
 import { HomeArticlesDetailResolver } from 'src/app/core/guards/home-articles.detail.guard';
 import { ArticlesDetailResolver } from 'src/app/core/guards/articles.detail.guard';
 
@@ -15,7 +15,7 @@ import { ArticlesDetailResolver } from 'src/app/core/guards/articles.detail.guar
   declarations: [
     HomeComponent,
     MainComponent,
-    ContactComponent
+    ContactComponent,
   ],
   imports: [
     CommonModule,
