@@ -1,1 +1,8 @@
-<h1>Create article component</h1>
+<article class="createArticleContainer">
+  <div class="createArticleTitle">
+    <textarea #titleTextArea (keydown.enter)="$event.preventDefault()" (keyup)="onKeyTitle($event)" class="createInputTitle" placeholder="Título" cols="40" rows="3" maxlength="84"></textarea>
+  </div>
+  <div class="createArticleBody">
+    <p data-placeholder="Escrega seu artigo..." class="empty"><br></p>
+  </div>
+</article>

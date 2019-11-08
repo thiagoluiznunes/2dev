@@ -11,6 +11,7 @@ import { FigureComponent } from './page-article/figure/figure.component';
 
 import { UserDetailResolver } from 'src/app/core/guards/user.detail.guard';
 import { ArticlesDetailResolver } from 'src/app/core/guards/articles.detail.guard';
+import { CreateArticleComponent } from './create-article/create-article.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ArticlesDetailResolver } from 'src/app/core/guards/articles.detail.guar
     GridArticleComponent,
     RowArticleComponent,
     PageArticleComponent,
+    CreateArticleComponent,
     ParagraphComponent,
     FigureComponent
   ],

@@ -7,6 +7,7 @@ import { HomeArticlesDetailResolver } from 'src/app/core/guards/home-articles.de
 import { PageArticleComponent } from './articles/page-article/page-article.component';
 import { ArticlesDetailResolver } from 'src/app/core/guards/articles.detail.guard';
 import { AuthGuard } from 'src/app/core/guards/auth.guard';
+import { CreateArticleComponent } from './articles/create-article/create-article.component';
 
 const homeRoutes: Routes = [
   {
@@ -31,9 +32,9 @@ const homeRoutes: Routes = [
             component: PageArticleComponent
           },
           {
-            path: 'criar',
+            path: 'escrever',
             canActivate: [AuthGuard],
-            component: PageArticleComponent
+            component: CreateArticleComponent
           },
           {
             path: '**',
