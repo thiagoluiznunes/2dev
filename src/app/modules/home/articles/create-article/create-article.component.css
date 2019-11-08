@@ -44,16 +44,29 @@
   justify-items: center;
 }
 
+.createArticleTitleAfter {
+  position: absolute;
+  color: rgba(0, 0, 0, .44);
+  border-right: 1px solid rgba(0, 0, 0, .15);
+  padding: 2px 12px;
+  font-weight: 400;
+  font-size: 1.5rem;
+  opacity: 0;
+  visibility: visible;
+  transition: opacity .15s ease;
+  margin-left: -100px;
+}
+
 .createArticleTitle>.createInputTitle {
   width: 100%;
   display: inline-block;
   outline-width: 0;
   border: none;
   font-family: LucidaGrandeBold;
-  font-size: 2rem;
+  /* font-family: CustomSansSerif,'Lucida Grande',Arial,sans-serif; */
+  /* font-weight: 700; */
+  font-size: 1.5rem;
   resize: none;
-
-  /* font: normal 30px/normal "Times New Roman", Times, serif; */
   color: rgba(0, 0, 0, 1);
   /* -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
   -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);

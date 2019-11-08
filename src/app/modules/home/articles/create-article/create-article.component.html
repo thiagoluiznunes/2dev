@@ -1,6 +1,8 @@
 <article class="createArticleContainer">
   <div class="createArticleTitle">
-    <textarea #titleTextArea (keydown.enter)="$event.preventDefault()" (keyup)="onKeyTitle($event)" class="createInputTitle" placeholder="Título" cols="40" rows="3" maxlength="84"></textarea>
+    <span #titleSpan class="createArticleTitleAfter">Título</span>
+    <textarea #titleTextArea data-label="Título" (keydown.enter)="$event.preventDefault()" (keyup)="onKeyTitle($event)"
+    (focus)="focusFunction()" (focusout)="focusOutFunction()" class="createInputTitle" placeholder="Título" cols="40" rows="3" maxlength="104"></textarea>
   </div>
   <div class="createArticleBody">
     <p data-placeholder="Escrega seu artigo..." class="empty"><br></p>

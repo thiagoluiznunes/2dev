@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, AfterViewInit, Renderer2 } from '@angular/core';
 import { fromEvent } from 'rxjs';
 import { map, debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
@@ -10,10 +10,11 @@ import { map, debounceTime, distinctUntilChanged } from 'rxjs/operators';
 })
 export class CreateArticleComponent implements OnInit, AfterViewInit {
 
+  @ViewChild('titleSpan', { static: false }) titleSpan: ElementRef;
   @ViewChild('titleTextArea', { static: false }) titleTextArea: ElementRef;
   title: String = '';
 
-  constructor() { }
+  constructor(private renderer: Renderer2) { }
 
   ngOnInit() {
   }
@@ -34,4 +35,11 @@ export class CreateArticleComponent implements OnInit, AfterViewInit {
       });
   }
 
+  focusFunction(): void {
+    this.renderer.setStyle(this.titleSpan.nativeElement, 'opacity', '1');
+  }
+
+  focusOutFunction(): void {
+    this.renderer.setStyle(this.titleSpan.nativeElement, 'opacity', '0');
+  }
 }
