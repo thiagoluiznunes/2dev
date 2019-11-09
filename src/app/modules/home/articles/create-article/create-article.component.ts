@@ -22,13 +22,43 @@ export class CreateArticleComponent implements OnInit, AfterViewInit {
   //   this.titleTextArea.nativeElement.rows += 1;
   // }
   ngAfterViewInit() {
+    fromEvent(this.titleTextArea.nativeElement, 'scroll')
+      .pipe(
+        map((e: any) => e.target.value),
+        distinctUntilChanged()
+      ).subscribe(data => {
+        if (data.length > 37) {
+          this.titleTextArea.nativeElement.rows += 1;
+        } else if (data.length > 74) {
+          this.titleTextArea.nativeElement.rows += 1;
+        }
+      });
     fromEvent(this.titleTextArea.nativeElement, 'keyup')
       .pipe(
-        map((e: any) => e.target.value), // extract the value of the input
+        map((e: any) => e.target.value),
         debounceTime(5000),
         distinctUntilChanged()
       ).subscribe(data => {
+        // TODO: Send article to backend
         console.log('Observable fromEvent: ', data);
+      });
+
+    fromEvent(this.titleTextArea.nativeElement, 'keyup')
+      .pipe(
+        map((e: any) => e),
+        distinctUntilChanged()
+      ).subscribe(e => {
+        if (e.key === 'Backspace') {
+          if (e.target.value === '' || e.target.value === null || e.target.value === undefined) {
+            e.target.rows = 1;
+          } else if (e.target.value.length < 38) {
+            e.target.rows = 1;
+          } else if (e.target.value.length > 37 && e.target.value.length < 75) {
+            e.target.rows = 2;
+          } else if (e.target.value.length > 74 && e.target.value.length < 120) {
+            e.target.rows = 3;
+          }
+        }
       });
   }
 

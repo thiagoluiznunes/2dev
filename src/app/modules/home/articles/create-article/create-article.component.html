@@ -2,8 +2,8 @@
   <div class="createArticleTitle">
     <span #titleSpan class="createArticleTitleAfter">Título</span>
     <textarea #titleTextArea data-label="Título" (focus)="focusFunction()" (keydown.enter)="$event.preventDefault()"
-      (focusout)="focusOutFunction()" class="createInputTitle" placeholder="{{ placeHolder }}" cols="40" rows="2"
-      maxlength="75"></textarea>
+      (focusout)="focusOutFunction()" class="createInputTitle" placeholder="{{ placeHolder }}" cols="40" rows="1"
+      maxlength="120"></textarea>
   </div>
   <div class="createArticleBody">
     <p data-placeholder="Escrega seu artigo..." class="empty"><br>Escreva seu artigo...</p>
