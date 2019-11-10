@@ -33,7 +33,18 @@
   justify-items: center;
 }
 
-.createArticleTitleAfter {
+.titleTextArea {
+  width: 100%;
+  display: inline-block;
+  outline-width: 0;
+  border: none;
+  font-family: LucidaGrandeBold;
+  font-size: 1.5rem;
+  resize: none;
+  color: rgba(0, 0, 0, 1);
+}
+
+.titleTextAreaAfter {
   position: absolute;
   color: rgba(0, 0, 0, .44);
   border-right: 1px solid rgba(0, 0, 0, .15);
@@ -44,15 +55,4 @@
   visibility: visible;
   transition: all .15s ease;
   margin-left: -100px;
-}
-
-.createArticleTitle>.createInputTitle {
-  width: 100%;
-  display: inline-block;
-  outline-width: 0;
-  border: none;
-  font-family: LucidaGrandeBold;
-  font-size: 1.5rem;
-  resize: none;
-  color: rgba(0, 0, 0, 1);
 }

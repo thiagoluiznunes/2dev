@@ -1,6 +1,11 @@
-import { Component, OnInit, ElementRef, ViewChild, AfterViewInit, Renderer2, OnChanges, SimpleChanges, HostListener } from '@angular/core';
+import {
+  Component, OnInit, ElementRef, ViewChild, ViewContainerRef, AfterViewInit,
+  Renderer2,
+} from '@angular/core';
 import { fromEvent } from 'rxjs';
 import { map, debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { TextAreaComponent } from './textarea/textarea.component';
+import { CreateArticleService } from './create-article.service';
 
 @Component({
   selector: 'app-create-article',
@@ -11,28 +16,20 @@ export class CreateArticleComponent implements OnInit, AfterViewInit {
 
   @ViewChild('titleSpan', { static: false }) titleSpan: ElementRef;
   @ViewChild('titleTextArea', { static: false }) titleTextArea: ElementRef;
+  @ViewChild('articleBodySection', { read: ViewContainerRef, static: false }) articleBodySection;
+
   title: String = '';
   placeHolder: String = 'Título';
 
-  constructor(private renderer: Renderer2) { }
+  constructor(
+    private service: CreateArticleService,
+    private renderer: Renderer2
+  ) { }
 
   ngOnInit() {
   }
-  // if (event.key === 'Enter') {
-  //   this.titleTextArea.nativeElement.rows += 1;
-  // }
+
   ngAfterViewInit() {
-    fromEvent(this.titleTextArea.nativeElement, 'scroll')
-      .pipe(
-        map((e: any) => e.target.value),
-        distinctUntilChanged()
-      ).subscribe(data => {
-        if (data.length > 37) {
-          this.titleTextArea.nativeElement.rows += 1;
-        } else if (data.length > 74) {
-          this.titleTextArea.nativeElement.rows += 1;
-        }
-      });
     fromEvent(this.titleTextArea.nativeElement, 'keyup')
       .pipe(
         map((e: any) => e.target.value),
@@ -43,21 +40,13 @@ export class CreateArticleComponent implements OnInit, AfterViewInit {
         console.log('Observable fromEvent: ', data);
       });
 
-    fromEvent(this.titleTextArea.nativeElement, 'keyup')
+    fromEvent(this.titleTextArea.nativeElement, 'keydown')
       .pipe(
         map((e: any) => e),
         distinctUntilChanged()
       ).subscribe(e => {
-        if (e.key === 'Backspace') {
-          if (e.target.value === '' || e.target.value === null || e.target.value === undefined) {
-            e.target.rows = 1;
-          } else if (e.target.value.length < 38) {
-            e.target.rows = 1;
-          } else if (e.target.value.length > 37 && e.target.value.length < 75) {
-            e.target.rows = 2;
-          } else if (e.target.value.length > 74 && e.target.value.length < 120) {
-            e.target.rows = 3;
-          }
+        if (e.key === 'Enter') {
+          this.service.createComponent(this.articleBodySection, 'paragraph');
         }
       });
   }
@@ -72,14 +61,4 @@ export class CreateArticleComponent implements OnInit, AfterViewInit {
     this.placeHolder = 'Título';
   }
 
-  // @HostListener('document:click', ['$event'])
-  // onClickOutside($event) {
-  //   const titleClicked = this.titleH1.nativeElement.contains($event.target);
-  //   if (!titleClicked) {
-  //     this.renderer.setStyle(this.titleSpan.nativeElement, 'opacity', '0');
-  //   }
-  // }
-  // titleClick(): void {
-  //   this.renderer.setStyle(this.titleSpan.nativeElement, 'opacity', '1');
-  // }
 }
