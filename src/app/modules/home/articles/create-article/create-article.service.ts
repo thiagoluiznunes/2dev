@@ -1,17 +1,15 @@
 import {
   Injectable,
   ComponentFactoryResolver,
-  ApplicationRef,
-  Injector,
-  EmbeddedViewRef,
   ComponentRef,
-  ElementRef,
   ViewContainerRef,
   ComponentFactory,
 } from '@angular/core';
 import { TextAreaComponent } from './textarea/textarea.component';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class CreateArticleService {
 
   constructor(

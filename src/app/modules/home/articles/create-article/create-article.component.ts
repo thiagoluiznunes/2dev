@@ -1,10 +1,15 @@
 import {
-  Component, OnInit, ElementRef, ViewChild, ViewContainerRef, AfterViewInit,
+  Component,
+  OnInit,
+  ElementRef,
+  ViewChild,
+  ViewContainerRef,
+  AfterViewInit,
   Renderer2,
+  ComponentRef
 } from '@angular/core';
 import { fromEvent } from 'rxjs';
 import { map, debounceTime, distinctUntilChanged } from 'rxjs/operators';
-import { TextAreaComponent } from './textarea/textarea.component';
 import { CreateArticleService } from './create-article.service';
 
 @Component({
@@ -20,6 +25,9 @@ export class CreateArticleComponent implements OnInit, AfterViewInit {
 
   title: String = '';
   placeHolder: String = 'Título';
+
+  // textRef: Array<ComponentRef<any>>;
+  textRef: ComponentRef<any>;
 
   constructor(
     private service: CreateArticleService,
@@ -46,11 +54,19 @@ export class CreateArticleComponent implements OnInit, AfterViewInit {
         distinctUntilChanged()
       ).subscribe(e => {
         if (e.key === 'Enter') {
-          this.service.createComponent(this.articleBodySection, 'paragraph');
+          const ref = this.service.createComponent(this.articleBodySection, 'paragraph');
+          ref.instance.destroyTextArea.subscribe(data => {
+            if (data) {
+              ref.destroy();
+            }
+          });
         }
       });
   }
 
+  reciverFeedback(response) {
+    console.log('Foi emitido o evento e chegou no pai >>>> ', response);
+  }
   focusFunction(): void {
     this.renderer.setStyle(this.titleSpan.nativeElement, 'opacity', '1');
     this.placeHolder = '';

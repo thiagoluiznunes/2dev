@@ -1,3 +1,3 @@
-<textarea autosize class="{{ textAreaCss }}" (keydown.enter)="$event.preventDefault()" (focus)="focusFunction()"
-  (focusout)="focusOutFunction()" placeholder="{{ textAreaPlaceHolder }}" cols="40" rows="{{ textAreaRows }}">
+<textarea autosize #textAreaRef class="{{ textAreaCss }}" (focus)="focusFunction()"
+  (focusout)="focusOutFunction()" placeholder="{{ textAreaPlaceHolder }}">
 </textarea>
