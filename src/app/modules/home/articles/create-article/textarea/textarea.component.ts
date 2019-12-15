@@ -20,8 +20,8 @@ import { map } from 'rxjs/operators';
 })
 export class TextAreaComponent implements OnInit, OnDestroy, AfterViewInit {
 
+  placeHolder = 'Digite seu text';
   @Output() destroyTextArea = new EventEmitter();
-
   @ViewChild('textAreaRef', { static: false }) textAreaRef: ElementRef;
 
   constructor(

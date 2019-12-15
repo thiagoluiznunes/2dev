@@ -39,12 +39,12 @@ export class CreateArticleComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    // const ref = this.service.createComponent(this.articleBodySection, 'paragraph');
-    // ref.instance.destroyTextArea.subscribe(data => {
-    //   if (data) {
-    //     ref.destroy();
-    //   }
-    // });
+    const ref = this.service.createComponent(this.articleBodySection, 'paragraph');
+    ref.instance.destroyTextArea.subscribe(data => {
+      if (data) {
+        ref.destroy();
+      }
+    });
 
     fromEvent(this.titleTextArea.nativeElement, 'keyup')
       .pipe(

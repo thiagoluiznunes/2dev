@@ -6,6 +6,7 @@ import { CreateArticleComponent } from './create-article.component';
 import { TextAreaComponent } from './textarea/textarea.component';
 import { CreateArticleService } from './create-article.service';
 
+
 @NgModule({
   declarations: [
     CreateArticleComponent,
@@ -14,7 +15,7 @@ import { CreateArticleService } from './create-article.service';
   imports: [
     CommonModule,
     CreateArticleRoutingModule,
-    AutosizeModule
+    AutosizeModule,
   ],
   exports: [
     CreateArticleComponent,

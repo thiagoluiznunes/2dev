@@ -1,4 +1,9 @@
-.titleTextAreaCss {
+.textAreaCss {
+  display: flex;
+  flex-direction: row;
+}
+
+.textAreaCss>textarea {
   width: 100%;
   display: inline-block;
   outline-width: 0;
@@ -7,4 +12,24 @@
   font-size: 1.5rem;
   resize: none;
   color: rgba(0, 0, 0, 1);
+}
+
+.textAreaCss>button {
+  position: absolute;
+  margin-left: -60px;
+  width: 35px;
+  height: 35px;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, .4);
+  color: rgba(0, 0, 0, .4);
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 50%;
+  transition: all ease-in-out .3s;
+}
+
+.textAreaCss>button:focus {
+  outline: 0;
 }
