@@ -1,4 +1,4 @@
-/* .titleTextAreaCss {
+.titleTextAreaCss {
   width: 100%;
   display: inline-block;
   outline-width: 0;
@@ -7,4 +7,4 @@
   font-size: 1.5rem;
   resize: none;
   color: rgba(0, 0, 0, 1);
-} */
+}

@@ -6,7 +6,7 @@ import {
   ViewContainerRef,
   AfterViewInit,
   Renderer2,
-  ComponentRef
+  ComponentRef,
 } from '@angular/core';
 import { fromEvent } from 'rxjs';
 import { map, debounceTime, distinctUntilChanged } from 'rxjs/operators';
@@ -32,12 +32,20 @@ export class CreateArticleComponent implements OnInit, AfterViewInit {
   constructor(
     private service: CreateArticleService,
     private renderer: Renderer2
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
   }
 
   ngAfterViewInit() {
+    // const ref = this.service.createComponent(this.articleBodySection, 'paragraph');
+    // ref.instance.destroyTextArea.subscribe(data => {
+    //   if (data) {
+    //     ref.destroy();
+    //   }
+    // });
+
     fromEvent(this.titleTextArea.nativeElement, 'keyup')
       .pipe(
         map((e: any) => e.target.value),

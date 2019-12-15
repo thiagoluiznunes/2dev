@@ -20,11 +20,6 @@ import { map } from 'rxjs/operators';
 })
 export class TextAreaComponent implements OnInit, OnDestroy, AfterViewInit {
 
-  @Input() textAreaId: String;
-  @Input() textAreaCss: String;
-  @Input() textAreaPlaceHolder: String;
-  @Input() textAreaRows: Number;
-
   @Output() destroyTextArea = new EventEmitter();
 
   @ViewChild('textAreaRef', { static: false }) textAreaRef: ElementRef;
