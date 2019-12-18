@@ -23,7 +23,7 @@ export class CreateArticleService {
     } else if (type === 'figure') {
       factory = null;
     }
-    return container.createComponent(factory);
+    return container.createComponent(factory, 0);
   }
 
   destroyComponent(container: ComponentRef<any>) {

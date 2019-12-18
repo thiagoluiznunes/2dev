@@ -10,7 +10,7 @@ import { CreateArticleService } from './create-article.service';
 @NgModule({
   declarations: [
     CreateArticleComponent,
-    TextAreaComponent
+    TextAreaComponent,
   ],
   imports: [
     CommonModule,
