@@ -74,7 +74,7 @@
 
 .navbar-boilerplate .dropdown-toggle:hover, .dropdown-toggle:hover>span {
   /* color: #1976d2; */
-  color: #00B7FF;
+  /* color: #00B7FF; */
   background: transparent;
 }
 
@@ -109,7 +109,8 @@
 }
 
 .dropdown-menu .profile-option:hover {
-  border-bottom-color: #ccc;
+  /* border-bottom-color: #ccc; */
+  border-bottom-color: #00B7FF;
 }
 
 @media only screen and (max-width: 768px) {
