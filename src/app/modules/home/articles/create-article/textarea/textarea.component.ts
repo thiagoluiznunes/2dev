@@ -10,9 +10,12 @@ import {
   EventEmitter,
   ViewContainerRef,
   Renderer2,
+  ComponentFactory,
+  ComponentFactoryResolver,
 } from '@angular/core';
 import { fromEvent } from 'rxjs';
 import { map, distinctUntilChanged } from 'rxjs/operators';
+import { TextAreaService } from './textarea.service';
 
 @Component({
   selector: 'app-textarea',
@@ -28,9 +31,16 @@ export class TextAreaComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('buttonAreaRef', { static: false }) buttonAreaRef: ElementRef;
 
   constructor(
-    private viewContainerRef: ViewContainerRef,
     private renderer: Renderer2,
+    private service: TextAreaService,
+    private resolver: ComponentFactoryResolver,
   ) { }
+
+  createTextAreaComponent() {
+    let factory: ComponentFactory<any>;
+    factory = this.resolver.resolveComponentFactory(TextAreaComponent);
+    return this.service.bodySectionRef.createComponent(factory);
+  }
 
   ngOnInit() { }
 
@@ -44,6 +54,14 @@ export class TextAreaComponent implements OnInit, OnDestroy, AfterViewInit {
       ).subscribe(e => {
         if (e.key === 'Backspace' && this.textAreaRef.nativeElement.value.length === 0) {
           this.destroyTextArea.emit(true);
+        } else if (e.key === 'Enter') {
+          e.preventDefault();
+          const ref = this.createTextAreaComponent();
+          ref.instance.destroyTextArea.subscribe(data => {
+            if (data) {
+              ref.destroy();
+            }
+          });
         }
       })
 

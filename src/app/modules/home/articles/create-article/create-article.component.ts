@@ -11,6 +11,7 @@ import {
 import { fromEvent } from 'rxjs';
 import { map, debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { CreateArticleService } from './create-article.service';
+import { TextAreaService } from './textarea/textarea.service';
 
 @Component({
   selector: 'app-create-article',
@@ -26,11 +27,9 @@ export class CreateArticleComponent implements OnInit, AfterViewInit {
   title: String = '';
   placeHolder: String = 'Título';
 
-  // textRef: Array<ComponentRef<any>>;
-  textRef: ComponentRef<any>;
-
   constructor(
     private service: CreateArticleService,
+    private textService: TextAreaService,
     private renderer: Renderer2
   ) {
   }
@@ -39,6 +38,7 @@ export class CreateArticleComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
+    this.textService.bodySectionRef = this.articleBodySection;
     const ref = this.service.createComponent(this.articleBodySection, 'paragraph');
     ref.instance.destroyTextArea.subscribe(data => {
       if (data) {

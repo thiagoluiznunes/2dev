@@ -5,6 +5,7 @@ import { CreateArticleRoutingModule } from './create-article-routing.module';
 import { CreateArticleComponent } from './create-article.component';
 import { TextAreaComponent } from './textarea/textarea.component';
 import { CreateArticleService } from './create-article.service';
+import { TextAreaService } from './textarea/textarea.service';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { CreateArticleService } from './create-article.service';
     TextAreaComponent
   ],
   providers: [
-    CreateArticleService
+    CreateArticleService,
+    TextAreaService,
   ],
   entryComponents: [TextAreaComponent]
 })
