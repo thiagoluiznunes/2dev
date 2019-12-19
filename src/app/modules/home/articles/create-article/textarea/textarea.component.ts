@@ -38,20 +38,24 @@ export class TextAreaComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngAfterViewInit() {
+    fromEvent(this.textAreaRef.nativeElement, 'keydown')
+      .pipe(
+        map((e: any) => e),
+      ).subscribe(e => {
+        if (e.key === 'Backspace' && this.textAreaRef.nativeElement.value.length === 0) {
+          this.destroyTextArea.emit(true);
+        }
+      })
+
     fromEvent(this.textAreaRef.nativeElement, 'keyup')
       .pipe(
         map((e: any) => e),
         distinctUntilChanged()
       ).subscribe(e => {
-        console.log('Value: ', this.textAreaRef.nativeElement.value.trim());
-        console.log(typeof this.textAreaRef.nativeElement.value.trim());
-        if (e.key === 'Backspace' && this.textAreaRef.nativeElement.value.length === 0) {
-          this.destroyTextArea.emit(true);
+        if (this.textAreaRef.nativeElement.value.trim() !== '') {
+          this.renderer.setStyle(this.buttonAreaRef.nativeElement, 'visibility', 'hidden');
         } else if (this.textAreaRef.nativeElement.value.trim() == '') {
           this.renderer.setStyle(this.buttonAreaRef.nativeElement, 'visibility', 'visible');
-        } else {
-          console.log('Hidden')
-          this.renderer.setStyle(this.buttonAreaRef.nativeElement, 'visibility', 'hidden');
         }
       });
   }
