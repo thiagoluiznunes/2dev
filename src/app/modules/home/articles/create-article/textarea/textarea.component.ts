@@ -61,11 +61,11 @@ export class TextAreaComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   focusFunction(): void {
-    // if (this.textAreaRef.nativeElement.value.length === 0) {
-    // }
+    this.renderer.setStyle(this.buttonAreaRef.nativeElement, 'visibility', 'visible');
   }
 
   focusOutFunction(): void {
+    this.renderer.setStyle(this.buttonAreaRef.nativeElement, 'visibility', 'hidden');
   }
 
 }
