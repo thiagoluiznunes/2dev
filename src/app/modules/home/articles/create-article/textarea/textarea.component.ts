@@ -36,10 +36,11 @@ export class TextAreaComponent implements OnInit, OnDestroy, AfterViewInit {
     private resolver: ComponentFactoryResolver,
   ) { }
 
-  createTextAreaComponent() {
+  createTextAreaComponent(index: number) {
+
     let factory: ComponentFactory<any>;
     factory = this.resolver.resolveComponentFactory(TextAreaComponent);
-    return this.service.bodySectionRef.createComponent(factory);
+    return this.service.bodySectionRef.createComponent(factory, index);
   }
 
   ngOnInit() { }
@@ -56,12 +57,18 @@ export class TextAreaComponent implements OnInit, OnDestroy, AfterViewInit {
           this.destroyTextArea.emit(true);
         } else if (e.key === 'Enter') {
           e.preventDefault();
-          const ref = this.createTextAreaComponent();
-          ref.instance.destroyTextArea.subscribe(data => {
-            if (data) {
-              ref.destroy();
-            }
-          });
+          console.log(this.textAreaRef.nativeElement);
+          // const index = this.service.bodySectionRef.indexOf(this.textAreaRef.nativeElement.hostView);
+          // console.log('Index: ', index);
+          // const ref = this.createTextAreaComponent(index);
+          // console.log(ref.indexOf);
+          // console.log(ref.hostView.rootNodes[0].previousElementSibling)
+          // console.log(ref.hostView)
+          // ref.instance.destroyTextArea.subscribe(data => {
+          //   if (data) {
+          //     ref.destroy();
+          //   }
+          // });
         }
       })
 
@@ -79,11 +86,15 @@ export class TextAreaComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   focusFunction(): void {
-    this.renderer.setStyle(this.buttonAreaRef.nativeElement, 'visibility', 'visible');
+    if (this.textAreaRef.nativeElement.value.trim() === '') {
+      this.renderer.setStyle(this.buttonAreaRef.nativeElement, 'visibility', 'visible');
+    }
   }
 
   focusOutFunction(): void {
-    this.renderer.setStyle(this.buttonAreaRef.nativeElement, 'visibility', 'hidden');
+    if (this.textAreaRef.nativeElement.value.trim() === '') {
+      this.renderer.setStyle(this.buttonAreaRef.nativeElement, 'visibility', 'hidden');
+    }
   }
 
 }

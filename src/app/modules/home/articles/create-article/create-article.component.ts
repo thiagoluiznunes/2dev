@@ -12,6 +12,7 @@ import { fromEvent } from 'rxjs';
 import { map, debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { CreateArticleService } from './create-article.service';
 import { TextAreaService } from './textarea/textarea.service';
+import { TextAreaClass } from './textarea/textarea.class';
 
 @Component({
   selector: 'app-create-article',
@@ -40,6 +41,7 @@ export class CreateArticleComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.textService.bodySectionRef = this.articleBodySection;
     const ref = this.service.createComponent(this.articleBodySection, 'paragraph');
+
     ref.instance.destroyTextArea.subscribe(data => {
       if (data) {
         ref.destroy();
@@ -62,7 +64,6 @@ export class CreateArticleComponent implements OnInit, AfterViewInit {
         distinctUntilChanged()
       ).subscribe(e => {
         if (e.key === 'Enter') {
-          const ref = this.service.createComponent(this.articleBodySection, 'paragraph');
           ref.instance.destroyTextArea.subscribe(data => {
             if (data) {
               ref.destroy();
