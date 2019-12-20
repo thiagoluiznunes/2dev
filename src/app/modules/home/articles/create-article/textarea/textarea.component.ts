@@ -48,6 +48,7 @@ export class TextAreaComponent implements OnInit, OnDestroy, AfterViewInit {
   ngOnDestroy(): void {
   }
 
+  // https://stackoverflow.com/questions/45925552/angular-get-index-of-dynamically-created-component-inside-viewcontainerref
   ngAfterViewInit() {
     fromEvent(this.textAreaRef.nativeElement, 'keydown')
       .pipe(
