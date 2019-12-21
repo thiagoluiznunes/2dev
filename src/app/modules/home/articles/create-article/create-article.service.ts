@@ -16,14 +16,12 @@ export class CreateArticleService {
     private resolver: ComponentFactoryResolver,
   ) { }
 
-  createComponent(container: ViewContainerRef, type: String) {
+  createComponent(container: ViewContainerRef, index: number) {
     let factory: ComponentFactory<any>;
-    if (type === 'paragraph') {
-      factory = this.resolver.resolveComponentFactory(TextAreaComponent);
-    } else if (type === 'figure') {
-      factory = null;
-    }
-    return container.createComponent(factory, 0);
+    factory = this.resolver.resolveComponentFactory(TextAreaComponent);
+    const ref = container.createComponent(factory, index);
+    ref.instance.id = container.indexOf(ref.hostView);
+    return ref;
   }
 
   destroyComponent(container: ComponentRef<any>) {

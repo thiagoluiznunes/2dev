@@ -3,12 +3,10 @@ import {
   OnInit,
   AfterViewInit,
   OnDestroy,
-  Input,
   ViewChild,
   ElementRef,
   Output,
   EventEmitter,
-  ViewContainerRef,
   Renderer2,
   ComponentFactory,
   ComponentFactoryResolver,
@@ -36,11 +34,14 @@ export class TextAreaComponent implements OnInit, OnDestroy, AfterViewInit {
     private resolver: ComponentFactoryResolver,
   ) { }
 
-  createTextAreaComponent(index: number) {
+  createTextAreaComponent() {
 
     let factory: ComponentFactory<any>;
     factory = this.resolver.resolveComponentFactory(TextAreaComponent);
-    return this.service.bodySectionRef.createComponent(factory, index);
+    const ref = this.service.bodySectionRef.createComponent(factory);
+    ref.instance.id = this.service.bodySectionRef.indexOf(ref.hostView);
+
+    return ref;
   }
 
   ngOnInit() { }
@@ -48,7 +49,6 @@ export class TextAreaComponent implements OnInit, OnDestroy, AfterViewInit {
   ngOnDestroy(): void {
   }
 
-  // https://stackoverflow.com/questions/45925552/angular-get-index-of-dynamically-created-component-inside-viewcontainerref
   ngAfterViewInit() {
     fromEvent(this.textAreaRef.nativeElement, 'keydown')
       .pipe(
@@ -56,22 +56,16 @@ export class TextAreaComponent implements OnInit, OnDestroy, AfterViewInit {
       ).subscribe(e => {
         if (e.key === 'Backspace' && this.textAreaRef.nativeElement.value.length === 0) {
           this.destroyTextArea.emit(true);
-        } else if (e.key === 'Enter') {
+        } else if (e.shiftKey && e.key === 'Enter') {
           e.preventDefault();
-          console.log(this.textAreaRef.nativeElement);
-          // const index = this.service.bodySectionRef.indexOf(this.textAreaRef.nativeElement.hostView);
-          // console.log('Index: ', index);
-          // const ref = this.createTextAreaComponent(index);
-          // console.log(ref.indexOf);
-          // console.log(ref.hostView.rootNodes[0].previousElementSibling)
-          // console.log(ref.hostView)
-          // ref.instance.destroyTextArea.subscribe(data => {
-          //   if (data) {
-          //     ref.destroy();
-          //   }
-          // });
+          const ref = this.createTextAreaComponent();
+          ref.instance.destroyTextArea.subscribe(data => {
+            if (data) {
+              ref.destroy();
+            }
+          });
         }
-      })
+      });
 
     fromEvent(this.textAreaRef.nativeElement, 'keyup')
       .pipe(
@@ -80,7 +74,7 @@ export class TextAreaComponent implements OnInit, OnDestroy, AfterViewInit {
       ).subscribe(e => {
         if (this.textAreaRef.nativeElement.value.trim() !== '') {
           this.renderer.setStyle(this.buttonAreaRef.nativeElement, 'visibility', 'hidden');
-        } else if (this.textAreaRef.nativeElement.value.trim() == '') {
+        } else if (this.textAreaRef.nativeElement.value.trim() === '') {
           this.renderer.setStyle(this.buttonAreaRef.nativeElement, 'visibility', 'visible');
         }
       });

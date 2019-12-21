@@ -40,11 +40,11 @@ export class CreateArticleComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.textService.bodySectionRef = this.articleBodySection;
-    const ref = this.service.createComponent(this.articleBodySection, 'paragraph');
+    const firstTextArea = this.service.createComponent(this.articleBodySection, 0);
 
-    ref.instance.destroyTextArea.subscribe(data => {
+    firstTextArea.instance.destroyTextArea.subscribe(data => {
       if (data) {
-        ref.destroy();
+        firstTextArea.destroy();
       }
     });
 
@@ -64,6 +64,7 @@ export class CreateArticleComponent implements OnInit, AfterViewInit {
         distinctUntilChanged()
       ).subscribe(e => {
         if (e.key === 'Enter') {
+          const ref = this.service.createComponent(this.articleBodySection, 0);
           ref.instance.destroyTextArea.subscribe(data => {
             if (data) {
               ref.destroy();
