@@ -89,6 +89,7 @@ export class TextAreaComponent implements OnInit, OnDestroy, AfterViewInit {
     if (this.textAreaRef.nativeElement.value.trim() === '') {
       this.isFocused = true;
       this.renderer.setStyle(this.buttonAreaRef.nativeElement, 'visibility', 'visible');
+      this.renderer.setStyle(this.divSelectOptions.nativeElement, 'visibility', 'hidden');
     }
   }
 
