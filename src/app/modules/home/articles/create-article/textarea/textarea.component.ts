@@ -27,6 +27,8 @@ export class TextAreaComponent implements OnInit, OnDestroy, AfterViewInit {
   @Output() destroyTextArea = new EventEmitter();
   @ViewChild('textAreaRef', { static: false }) textAreaRef: ElementRef;
   @ViewChild('buttonAreaRef', { static: false }) buttonAreaRef: ElementRef;
+  @ViewChild('divSelectOptions', { static: false }) divSelectOptions: ElementRef;
+  @HostListener('document:click', ['$event.target'])
 
   constructor(
     private renderer: Renderer2,
@@ -93,6 +95,11 @@ export class TextAreaComponent implements OnInit, OnDestroy, AfterViewInit {
     if (this.textAreaRef.nativeElement.value.trim() === '') {
       this.renderer.setStyle(this.buttonAreaRef.nativeElement, 'visibility', 'hidden');
     }
+    this.renderer.setStyle(this.divSelectOptions.nativeElement, 'visibility', 'hidden');
   }
 
+  selectOptions(): void {
+    this.renderer.setStyle(this.buttonAreaRef.nativeElement, 'visibility', 'visible');
+    this.renderer.setStyle(this.divSelectOptions.nativeElement, 'visibility', 'visible');
+  }
 }

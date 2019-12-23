@@ -1,8 +1,21 @@
 <div #divTextAreaRef class="textAreaCss">
-  <button #buttonAreaRef>
+  <button #buttonAreaRef class="choseButton" (click)="selectOptions()">
     <span style="color: rgba(0, 0, 0, .4);">
       <i class="fas fa-plus"></i>
     </span>
   </button>
+  <div #divSelectOptions class="divSelectOptions">
+    <button #buttonAreaRef class="selectOptionsButton">
+      <span style="color: rgba(0, 0, 0, .4);">
+        <i class="fas fa-camera"></i>
+      </span>
+    </button>
+
+    <button #buttonAreaRef class="selectOptionsButton">
+      <span style="color: rgba(0, 0, 0, .4);">
+        <i class="fab fa-github"></i>
+      </span>
+    </button>
+  </div>
   <textarea autosize #textAreaRef (focus)="focusFunction()" (focusout)="focusOutFunction()"></textarea>
 </div>

@@ -14,7 +14,7 @@
   color: rgba(0, 0, 0, 0.84);
 }
 
-.textAreaCss>button {
+.textAreaCss .choseButton {
   position: absolute;
   margin-left: -60px;
   width: 35px;
@@ -30,6 +30,32 @@
   transition: all ease-in-out .3s;
 }
 
-.textAreaCss>button:focus {
+.textAreaCss .choseButton:focus {
+  outline: 0;
+}
+
+.textAreaCss .divSelectOptions {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  visibility: hidden;
+}
+
+.textAreaCss .selectOptionsButton {
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, .4);
+  color: rgba(0, 0, 0, .4);
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 50%;
+  transition: all ease-in-out .3s;
+}
+
+.textAreaCss .choseOptionsButton:focus {
   outline: 0;
 }
