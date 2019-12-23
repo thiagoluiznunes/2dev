@@ -10,6 +10,7 @@ import {
   Renderer2,
   ComponentFactory,
   ComponentFactoryResolver,
+  HostListener,
 } from '@angular/core';
 import { fromEvent } from 'rxjs';
 import { map, distinctUntilChanged } from 'rxjs/operators';
@@ -28,7 +29,8 @@ export class TextAreaComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('textAreaRef', { static: false }) textAreaRef: ElementRef;
   @ViewChild('buttonAreaRef', { static: false }) buttonAreaRef: ElementRef;
   @ViewChild('divSelectOptions', { static: false }) divSelectOptions: ElementRef;
-  @HostListener('document:click', ['$event.target'])
+
+  isFocused = false;
 
   constructor(
     private renderer: Renderer2,
@@ -62,8 +64,6 @@ export class TextAreaComponent implements OnInit, OnDestroy, AfterViewInit {
         } else if (e.shiftKey && e.key === 'Enter') {
           e.preventDefault();
           const ref = this.createTextAreaComponent();
-          // const el = ref.hostView.rootNodes[0].children[0].children[1];
-          // el.focus();
           ref.instance.destroyTextArea.subscribe(data => {
             if (data) {
               ref.destroy();
@@ -87,19 +87,31 @@ export class TextAreaComponent implements OnInit, OnDestroy, AfterViewInit {
 
   focusFunction(): void {
     if (this.textAreaRef.nativeElement.value.trim() === '') {
+      this.isFocused = true;
       this.renderer.setStyle(this.buttonAreaRef.nativeElement, 'visibility', 'visible');
     }
   }
 
   focusOutFunction(): void {
     if (this.textAreaRef.nativeElement.value.trim() === '') {
+      this.isFocused = false;
       this.renderer.setStyle(this.buttonAreaRef.nativeElement, 'visibility', 'hidden');
     }
     this.renderer.setStyle(this.divSelectOptions.nativeElement, 'visibility', 'hidden');
   }
 
   selectOptions(): void {
-    this.renderer.setStyle(this.buttonAreaRef.nativeElement, 'visibility', 'visible');
-    this.renderer.setStyle(this.divSelectOptions.nativeElement, 'visibility', 'visible');
+  }
+
+  @HostListener('document:click', ['$event'])
+  onClickOutside($event) {
+    const clickedInside = this.buttonAreaRef.nativeElement.contains($event.target);
+    if (clickedInside) {
+      this.renderer.setStyle(this.buttonAreaRef.nativeElement, 'visibility', 'visible');
+      this.renderer.setStyle(this.divSelectOptions.nativeElement, 'visibility', 'visible');
+    } else if (!clickedInside && !this.isFocused) {
+      this.renderer.setStyle(this.divSelectOptions.nativeElement, 'visibility', 'hidden');
+      this.renderer.setStyle(this.buttonAreaRef.nativeElement, 'visibility', 'hidden');
+    }
   }
 }

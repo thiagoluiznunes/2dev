@@ -56,6 +56,6 @@
   transition: all ease-in-out .3s;
 }
 
-.textAreaCss .choseOptionsButton:focus {
+.textAreaCss .selectOptionsButton:focus {
   outline: 0;
 }
