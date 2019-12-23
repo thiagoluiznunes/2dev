@@ -50,6 +50,7 @@ export class TextAreaComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngAfterViewInit() {
+    this.textAreaRef.nativeElement.focus();
     fromEvent(this.textAreaRef.nativeElement, 'keydown')
       .pipe(
         map((e: any) => e),
@@ -59,6 +60,8 @@ export class TextAreaComponent implements OnInit, OnDestroy, AfterViewInit {
         } else if (e.shiftKey && e.key === 'Enter') {
           e.preventDefault();
           const ref = this.createTextAreaComponent();
+          // const el = ref.hostView.rootNodes[0].children[0].children[1];
+          // el.focus();
           ref.instance.destroyTextArea.subscribe(data => {
             if (data) {
               ref.destroy();
