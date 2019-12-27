@@ -6,12 +6,14 @@ import { CreateArticleComponent } from './create-article.component';
 import { TextAreaComponent } from './textarea/textarea.component';
 import { CreateArticleService } from './create-article.service';
 import { TextAreaService } from './textarea/textarea.service';
+import { FigureComponent } from './figure/figure.component';
 
 
 @NgModule({
   declarations: [
     CreateArticleComponent,
     TextAreaComponent,
+    FigureComponent,
   ],
   imports: [
     CommonModule,

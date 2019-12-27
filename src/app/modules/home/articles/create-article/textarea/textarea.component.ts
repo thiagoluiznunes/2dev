@@ -11,10 +11,14 @@ import {
   ComponentFactory,
   ComponentFactoryResolver,
   HostListener,
+  ComponentRef,
+  Input,
 } from '@angular/core';
 import { fromEvent } from 'rxjs';
 import { map, distinctUntilChanged } from 'rxjs/operators';
 import { TextAreaService } from './textarea.service';
+import { CreateArticleService } from '../create-article.service';
+import { FigureService } from '../figure/figure.service';
 
 @Component({
   selector: 'app-textarea',
@@ -28,21 +32,32 @@ export class TextAreaComponent implements OnInit, OnDestroy, AfterViewInit {
   @Output() destroyTextArea = new EventEmitter();
   @ViewChild('textAreaRef', { static: false }) textAreaRef: ElementRef;
   @ViewChild('buttonAreaRef', { static: false }) buttonAreaRef: ElementRef;
+  @ViewChild('buttonCamRef', { static: false }) buttonCamRef: ElementRef;
+  @ViewChild('buttonGitHubRef', { static: false }) buttoGitHubRef: ElementRef;
   @ViewChild('divSelectOptions', { static: false }) divSelectOptions: ElementRef;
 
+  ref: ComponentRef<any>;
   isFocused = false;
+  // @Input('someProp') someProp;
+
 
   constructor(
     private renderer: Renderer2,
-    private service: TextAreaService,
+    private service: CreateArticleService,
     private resolver: ComponentFactoryResolver,
+    private figureService: FigureService,
   ) { }
 
-  createTextAreaComponent() {
-
+  createTextAreaComponent(index?: number) {
     let factory: ComponentFactory<any>;
+    let ref = null;
     factory = this.resolver.resolveComponentFactory(TextAreaComponent);
-    const ref = this.service.bodySectionRef.createComponent(factory);
+    console.log(index);
+    if (index !== null && index !== undefined) {
+      ref = this.service.bodySectionRef.createComponent(factory, index + 1);
+    } else {
+      ref = this.service.bodySectionRef.createComponent(factory);
+    }
     ref.instance.id = this.service.bodySectionRef.indexOf(ref.hostView);
 
     return ref;
@@ -54,6 +69,7 @@ export class TextAreaComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngAfterViewInit() {
+    const currentId = this.id;
     this.textAreaRef.nativeElement.focus();
     fromEvent(this.textAreaRef.nativeElement, 'keydown')
       .pipe(
@@ -63,7 +79,7 @@ export class TextAreaComponent implements OnInit, OnDestroy, AfterViewInit {
           this.destroyTextArea.emit(true);
         } else if (e.shiftKey && e.key === 'Enter') {
           e.preventDefault();
-          const ref = this.createTextAreaComponent();
+          const ref = this.createTextAreaComponent(currentId);
           ref.instance.destroyTextArea.subscribe(data => {
             if (data) {
               ref.destroy();
@@ -101,9 +117,6 @@ export class TextAreaComponent implements OnInit, OnDestroy, AfterViewInit {
     this.renderer.setStyle(this.divSelectOptions.nativeElement, 'visibility', 'hidden');
   }
 
-  selectOptions(): void {
-  }
-
   @HostListener('document:click', ['$event'])
   onClickOutside($event) {
     const clickedInside = this.buttonAreaRef.nativeElement.contains($event.target);
@@ -114,5 +127,9 @@ export class TextAreaComponent implements OnInit, OnDestroy, AfterViewInit {
       this.renderer.setStyle(this.divSelectOptions.nativeElement, 'visibility', 'hidden');
       this.renderer.setStyle(this.buttonAreaRef.nativeElement, 'visibility', 'hidden');
     }
+  }
+
+  createFigureComponent(): void {
+
   }
 }
