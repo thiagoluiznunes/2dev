@@ -41,11 +41,9 @@ export class CreateArticleComponent implements OnInit, AfterViewInit {
     this.service.bodySectionRef = this.articleBodySection;
 
     const firstTextArea = this.textService.createComponent(this.articleBodySection, 0);
-    // const textArea = new TextAreaClass(0, firstTextArea);
-    // this.service.textAreaArray.push(textArea);
-
     firstTextArea.instance.destroyTextArea.subscribe(data => {
       if (data) {
+        this.service.removeTextAreaComponent(0);
         firstTextArea.destroy();
       }
     });
@@ -65,14 +63,15 @@ export class CreateArticleComponent implements OnInit, AfterViewInit {
         map((e: any) => e),
         distinctUntilChanged()
       ).subscribe(e => {
-        // if (e.key === 'Enter') {
-        //   const ref = this.textService.createComponent(this.articleBodySection, 0);
-        //   ref.instance.destroyTextArea.subscribe(data => {
-        //     if (data) {
-        //       ref.destroy();
-        //     }
-        //   });
-        // }
+        if (e.key === 'Enter') {
+          const ref = this.textService.createComponent(this.articleBodySection, 0);
+          ref.instance.destroyTextArea.subscribe(data => {
+            if (data) {
+              this.service.removeTextAreaComponent(0);
+              ref.destroy();
+            }
+          });
+        }
       });
   }
 

@@ -15,7 +15,7 @@ export class CreateArticleService {
   constructor() { }
 
   changePosition(id: number) {
-    this.textAreaArray.forEach((component, index) => {
+    this.textAreaArray.forEach((component) => {
       if (component.id >= id) {
         component.id = component.id + 1;
       }

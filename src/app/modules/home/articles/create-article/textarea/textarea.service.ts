@@ -6,6 +6,7 @@ import {
   ComponentFactory,
 } from '@angular/core';
 import { TextAreaComponent } from './textarea.component';
+import { CreateArticleService } from '../create-article.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,14 +15,15 @@ export class TextAreaService {
 
   constructor(
     private resolver: ComponentFactoryResolver,
+    private articleService: CreateArticleService,
   ) { }
   createComponent(container: ViewContainerRef, index: number) {
     let factory: ComponentFactory<any>;
+    let ref = null;
     factory = this.resolver.resolveComponentFactory(TextAreaComponent);
-    const ref = container.createComponent(factory, index);
+    this.articleService.changePosition(0);
+    ref = container.createComponent(factory, index);
     ref.instance.id = container.indexOf(ref.hostView);
-    ref.instance.someProp = 'Hello World';
-
     return ref;
   }
 
