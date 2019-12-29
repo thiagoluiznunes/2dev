@@ -2,7 +2,7 @@ import {
   Injectable,
   ViewContainerRef,
 } from '@angular/core';
-import { TextAreaClass } from './textarea/textarea.class';
+import { TextAreaComponent } from './textarea/textarea.component';
 
 @Injectable({
   providedIn: 'root'
@@ -10,21 +10,23 @@ import { TextAreaClass } from './textarea/textarea.class';
 export class CreateArticleService {
 
   bodySectionRef: ViewContainerRef;
-  textAreaArray: Array<TextAreaClass>;
+  textAreaArray: Array<TextAreaComponent> = [];
 
-  constructor(
-    // private resolver: ComponentFactoryResolver,
-  ) { }
+  constructor() { }
 
-  // createComponent(container: ViewContainerRef, index: number) {
-  //   let factory: ComponentFactory<any>;
-  //   factory = this.resolver.resolveComponentFactory(TextAreaComponent);
-  //   const ref = container.createComponent(factory, index);
-  //   ref.instance.id = container.indexOf(ref.hostView);
-  //   return ref;
-  // }
+  changePosition(id: number) {
+    this.textAreaArray.forEach((component, index) => {
+      if (component.id >= id) {
+        component.id = component.id + 1;
+      }
+    });
+  }
 
-  // destroyComponent(container: ComponentRef<any>) {
-  //   container.destroy();
-  // }
+  removeTextAreaComponent(id: number) {
+    this.textAreaArray.forEach((component, index) => {
+      if (component.id === id) {
+        this.textAreaArray.splice(index, 1);
+      }
+    });
+  }
 }

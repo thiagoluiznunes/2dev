@@ -12,11 +12,9 @@ import {
   ComponentFactoryResolver,
   HostListener,
   ComponentRef,
-  Input,
 } from '@angular/core';
 import { fromEvent } from 'rxjs';
 import { map, distinctUntilChanged } from 'rxjs/operators';
-import { TextAreaService } from './textarea.service';
 import { CreateArticleService } from '../create-article.service';
 import { FigureService } from '../figure/figure.service';
 
@@ -38,22 +36,22 @@ export class TextAreaComponent implements OnInit, OnDestroy, AfterViewInit {
 
   ref: ComponentRef<any>;
   isFocused = false;
-  // @Input('someProp') someProp;
-
+  id: any;
 
   constructor(
     private renderer: Renderer2,
     private service: CreateArticleService,
     private resolver: ComponentFactoryResolver,
     private figureService: FigureService,
+    private articleService: CreateArticleService
   ) { }
 
   createTextAreaComponent(index?: number) {
     let factory: ComponentFactory<any>;
     let ref = null;
     factory = this.resolver.resolveComponentFactory(TextAreaComponent);
-    console.log(index);
     if (index !== null && index !== undefined) {
+      this.articleService.changePosition(index + 1);
       ref = this.service.bodySectionRef.createComponent(factory, index + 1);
     } else {
       ref = this.service.bodySectionRef.createComponent(factory);
@@ -69,7 +67,7 @@ export class TextAreaComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    const currentId = this.id;
+    this.articleService.textAreaArray.push(this);
     this.textAreaRef.nativeElement.focus();
     fromEvent(this.textAreaRef.nativeElement, 'keydown')
       .pipe(
@@ -79,9 +77,10 @@ export class TextAreaComponent implements OnInit, OnDestroy, AfterViewInit {
           this.destroyTextArea.emit(true);
         } else if (e.shiftKey && e.key === 'Enter') {
           e.preventDefault();
-          const ref = this.createTextAreaComponent(currentId);
+          const ref = this.createTextAreaComponent(this.id);
           ref.instance.destroyTextArea.subscribe(data => {
             if (data) {
+              this.articleService.removeTextAreaComponent(this.id);
               ref.destroy();
             }
           });
