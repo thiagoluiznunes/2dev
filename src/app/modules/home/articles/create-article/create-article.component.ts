@@ -6,13 +6,11 @@ import {
   ViewContainerRef,
   AfterViewInit,
   Renderer2,
-  ComponentRef,
 } from '@angular/core';
 import { fromEvent } from 'rxjs';
 import { map, debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { CreateArticleService } from './create-article.service';
 import { TextAreaService } from './textarea/textarea.service';
-import { TextAreaClass } from './textarea/textarea.class';
 
 @Component({
   selector: 'app-create-article',
@@ -66,7 +64,6 @@ export class CreateArticleComponent implements OnInit, AfterViewInit {
           const ref = this.textService.createComponent(this.articleBodySection, 0);
           ref.instance.destroyTextArea.subscribe(data => {
             if (data) {
-              console.log(ref.instance.id);
               this.service.removeTextAreaComponent(ref);
             }
           });
@@ -77,6 +74,7 @@ export class CreateArticleComponent implements OnInit, AfterViewInit {
   reciverFeedback(response) {
     console.log('Foi emitido o evento e chegou no pai >>>> ', response);
   }
+
   focusFunction(): void {
     this.renderer.setStyle(this.titleSpan.nativeElement, 'opacity', '1');
     this.placeHolder = '';

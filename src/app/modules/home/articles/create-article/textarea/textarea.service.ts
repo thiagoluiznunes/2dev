@@ -17,6 +17,7 @@ export class TextAreaService {
     private resolver: ComponentFactoryResolver,
     private articleService: CreateArticleService,
   ) { }
+
   createComponent(container: ViewContainerRef, index: number) {
     let factory: ComponentFactory<any>;
     let ref = null;
