@@ -1,6 +1,7 @@
 import {
   Injectable,
   ViewContainerRef,
+  ComponentRef,
 } from '@angular/core';
 import { TextAreaComponent } from './textarea/textarea.component';
 
@@ -22,10 +23,17 @@ export class CreateArticleService {
     });
   }
 
-  removeTextAreaComponent(id: number) {
+  removeTextAreaComponent(ref: ComponentRef<any>) {
+    const id = ref.instance.id;
     this.textAreaArray.forEach((component, index) => {
       if (component.id === id) {
         this.textAreaArray.splice(index, 1);
+      }
+    });
+    ref.destroy();
+    this.textAreaArray.forEach((component) => {
+      if (component.id > id) {
+        component.id = component.id - 1;
       }
     });
   }

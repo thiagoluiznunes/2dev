@@ -80,8 +80,7 @@ export class TextAreaComponent implements OnInit, OnDestroy, AfterViewInit {
           const ref = this.createTextAreaComponent(this.id);
           ref.instance.destroyTextArea.subscribe(data => {
             if (data) {
-              this.articleService.removeTextAreaComponent(this.id);
-              ref.destroy();
+              this.articleService.removeTextAreaComponent(ref);
             }
           });
         }

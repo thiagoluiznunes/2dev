@@ -43,8 +43,7 @@ export class CreateArticleComponent implements OnInit, AfterViewInit {
     const firstTextArea = this.textService.createComponent(this.articleBodySection, 0);
     firstTextArea.instance.destroyTextArea.subscribe(data => {
       if (data) {
-        this.service.removeTextAreaComponent(0);
-        firstTextArea.destroy();
+        this.service.removeTextAreaComponent(firstTextArea);
       }
     });
 
@@ -67,8 +66,8 @@ export class CreateArticleComponent implements OnInit, AfterViewInit {
           const ref = this.textService.createComponent(this.articleBodySection, 0);
           ref.instance.destroyTextArea.subscribe(data => {
             if (data) {
-              this.service.removeTextAreaComponent(0);
-              ref.destroy();
+              console.log(ref.instance.id);
+              this.service.removeTextAreaComponent(ref);
             }
           });
         }

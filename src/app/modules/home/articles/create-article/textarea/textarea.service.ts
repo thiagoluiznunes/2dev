@@ -21,7 +21,7 @@ export class TextAreaService {
     let factory: ComponentFactory<any>;
     let ref = null;
     factory = this.resolver.resolveComponentFactory(TextAreaComponent);
-    this.articleService.changePosition(0);
+    this.articleService.changePosition(index);
     ref = container.createComponent(factory, index);
     ref.instance.id = container.indexOf(ref.hostView);
     return ref;
