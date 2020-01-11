@@ -80,7 +80,7 @@ export class TextAreaComponent implements OnInit, OnDestroy, AfterViewInit {
           const ref = this.createTextAreaComponent(this.id);
           ref.instance.destroyTextArea.subscribe(data => {
             if (data) {
-              this.articleService.removeTextAreaComponent(ref);
+              this.articleService.removeComponentFromBodySection(ref);
             }
           });
         }
@@ -127,7 +127,13 @@ export class TextAreaComponent implements OnInit, OnDestroy, AfterViewInit {
     }
   }
 
-  createFigureComponent(): void {
+  createFigureComponent(event): void {
+    const reader = new FileReader();
 
+    reader.onload = (event) => {
+      // const src = event.target.result;
+    };
+
+    reader.readAsDataURL(event.target.files[0]);
   }
 }

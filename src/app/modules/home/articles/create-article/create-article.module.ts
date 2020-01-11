@@ -7,6 +7,7 @@ import { TextAreaComponent } from './textarea/textarea.component';
 import { CreateArticleService } from './create-article.service';
 import { TextAreaService } from './textarea/textarea.service';
 import { FigureComponent } from './figure/figure.component';
+import { FigureService } from './figure/figure.service';
 
 
 @NgModule({
@@ -22,12 +23,14 @@ import { FigureComponent } from './figure/figure.component';
   ],
   exports: [
     CreateArticleComponent,
-    TextAreaComponent
+    // TextAreaComponent,
+    // FigureComponent,
   ],
   providers: [
     CreateArticleService,
     TextAreaService,
+    FigureService,
   ],
-  entryComponents: [TextAreaComponent]
+  entryComponents: [TextAreaComponent, FigureComponent]
 })
 export class CreateArticleModule { }

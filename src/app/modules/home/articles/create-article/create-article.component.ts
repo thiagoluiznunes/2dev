@@ -11,6 +11,7 @@ import { fromEvent } from 'rxjs';
 import { map, debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { CreateArticleService } from './create-article.service';
 import { TextAreaService } from './textarea/textarea.service';
+import { FigureService } from './figure/figure.service';
 
 @Component({
   selector: 'app-create-article',
@@ -27,8 +28,9 @@ export class CreateArticleComponent implements OnInit, AfterViewInit {
   placeHolder: String = 'Título';
 
   constructor(
-    private service: CreateArticleService,
+    private articleService: CreateArticleService,
     private textService: TextAreaService,
+    private figureService: FigureService,
     private renderer: Renderer2
   ) {}
 
@@ -36,14 +38,21 @@ export class CreateArticleComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.service.bodySectionRef = this.articleBodySection;
+    this.articleService.bodySectionRef = this.articleBodySection;
 
     const firstTextArea = this.textService.createComponent(this.articleBodySection, 0);
     firstTextArea.instance.destroyTextArea.subscribe(data => {
       if (data) {
-        this.service.removeTextAreaComponent(firstTextArea);
+        this.articleService.removeComponentFromBodySection(firstTextArea);
       }
     });
+
+    const imageTest = this.figureService.createComponent(this.articleBodySection, 0);
+    // imageTest.instance.destroyTextArea.subscribe(data => {
+    //   if (data) {
+    //     this.articleService.removeComponentFromBodySection(imageTest);
+    //   }
+    // });
 
     fromEvent(this.titleTextArea.nativeElement, 'keyup')
       .pipe(
@@ -64,7 +73,7 @@ export class CreateArticleComponent implements OnInit, AfterViewInit {
           const ref = this.textService.createComponent(this.articleBodySection, 0);
           ref.instance.destroyTextArea.subscribe(data => {
             if (data) {
-              this.service.removeTextAreaComponent(ref);
+              this.articleService.removeComponentFromBodySection(ref);
             }
           });
         }

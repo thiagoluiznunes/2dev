@@ -1,10 +1,4 @@
-import {
-  Injectable,
-  ViewContainerRef,
-  ComponentRef,
-  ComponentFactoryResolver,
-  ComponentFactory,
-} from '@angular/core';
+import { Injectable, ViewContainerRef, ComponentRef, ComponentFactoryResolver } from '@angular/core';
 import { TextAreaComponent } from './textarea.component';
 import { CreateArticleService } from '../create-article.service';
 
@@ -19,9 +13,9 @@ export class TextAreaService {
   ) { }
 
   createComponent(container: ViewContainerRef, index: number) {
-    let factory: ComponentFactory<any>;
     let ref = null;
-    factory = this.resolver.resolveComponentFactory(TextAreaComponent);
+    const factory = this.resolver.resolveComponentFactory(TextAreaComponent);
+
     this.articleService.changePosition(index);
     ref = container.createComponent(factory, index);
     ref.instance.id = container.indexOf(ref.hostView);

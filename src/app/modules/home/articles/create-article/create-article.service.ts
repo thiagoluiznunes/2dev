@@ -23,7 +23,7 @@ export class CreateArticleService {
     });
   }
 
-  removeTextAreaComponent(ref: ComponentRef<any>) {
+  removeComponentFromBodySection(ref: ComponentRef<any>) {
     const id = ref.instance.id;
     this.textAreaArray.forEach((component, index) => {
       if (component.id === id) {

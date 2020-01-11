@@ -1,5 +1,6 @@
-import { Injectable, ComponentFactoryResolver, ViewContainerRef, ComponentFactory, ComponentRef } from '@angular/core';
+import { Injectable, ComponentFactoryResolver, ViewContainerRef, ComponentRef } from '@angular/core';
 import { FigureComponent } from './figure.component';
+import { CreateArticleService } from '../create-article.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,12 +9,15 @@ export class FigureService {
 
   constructor(
     private resolver: ComponentFactoryResolver,
+    private articleService: CreateArticleService,
   ) { }
 
   createComponent(container: ViewContainerRef, index: number) {
-    let factory: ComponentFactory<any>;
-    factory = this.resolver.resolveComponentFactory(FigureComponent);
-    const ref = container.createComponent(factory, index);
+    let ref = null;
+    const factory = this.resolver.resolveComponentFactory(FigureComponent);
+
+    this.articleService.changePosition(index);
+    ref = container.createComponent(factory, index);
     ref.instance.id = container.indexOf(ref.hostView);
     return ref;
   }
