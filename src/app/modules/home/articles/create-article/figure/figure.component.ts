@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, ChangeDetectorRef, Input } from '@angular/core';
 
 @Component({
   selector: 'app-figure',
@@ -10,8 +10,6 @@ export class FigureComponent implements OnInit, AfterViewInit {
   @ViewChild('divFigureRef', { static: false }) divFigureRef: ElementRef;
   @ViewChild('imgFigureRef', { static: false }) imgFigureRef: ElementRef;
 
-  imgSrc = '/assets/imgs/profile.jpeg';
-
   constructor() {
   }
 
@@ -19,6 +17,6 @@ export class FigureComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-
+    this.imgFigureRef.nativeElement.src = '/assets/imgs/profile.jpeg';
   }
 }
