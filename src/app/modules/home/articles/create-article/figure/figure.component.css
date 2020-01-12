@@ -1,0 +1,11 @@
+.figureCss {}
+
+.figureCss>img {
+  max-height: 300px;
+  background-position: 50% 50% !important;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  padding: 2px;
+  transition: all ease-in-out .3s;
+}
